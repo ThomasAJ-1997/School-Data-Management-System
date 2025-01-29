@@ -1,0 +1,57 @@
+@import "external.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.home-section {
+  background: url("../imgs/homepage-frontofschool2.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+  &-black-fill {
+    background: rgba(0, 0, 0, 0.75);
+    min-height: 100vh;
+  }
+}
+
+#navHome {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.welcome-text {
+  min-height: 80vh;
+}
+
+.welcome-text img {
+  width: 10rem;
+}
+
+.welcome-text h4 {
+  @include heading(#eeeeee, 4rem);
+}
+
+.welcome-text p {
+  color: #222;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 5px;
+  border-radius: 4px;
+}
+
+#about {
+  min-height: 100vh;
+}
+
+#about .card-1 {
+  max-width: 600px;
+  width: 90%;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+#about .card-1 h5 {
+  font-family: "Lobster", cursive;
+}
