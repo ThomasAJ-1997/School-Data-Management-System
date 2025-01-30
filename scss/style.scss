@@ -1,4 +1,5 @@
 @import "external.scss";
+@import "nav.scss";
 
 * {
   padding: 0;
@@ -18,10 +19,6 @@
   }
 }
 
-#navHome {
-  background: rgba(255, 255, 255, 0.5) !important;
-}
-
 .welcome-text {
   min-height: 80vh;
 }
@@ -35,8 +32,9 @@
 }
 
 .welcome-text p {
-  color: #222;
-  background: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
   padding: 5px;
   border-radius: 4px;
 }
@@ -54,4 +52,13 @@
 
 #about .card-1 h5 {
   font-family: "Lobster", cursive;
+}
+
+#contact {
+  min-height: 100vh;
+}
+#contact .contact-form {
+  max-width: 600px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.5);
 }
