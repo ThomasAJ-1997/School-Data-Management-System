@@ -9,3 +9,52 @@ $main-color: hsl(43, 100%, 60%);
   font-size: $fontSize;
   font-family: "Lobster", cursive;
 }
+
+@mixin sectionHeading($color, $fontSize) {
+  color: $color;
+  font-size: $fontSize;
+  font-family: "Lobster" cursive;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+@mixin sectionButtons($color) {
+  color: $text-color;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 10px 10px;
+  border: 1px solid $text-color;
+}
+
+@mixin sectionDescription() {
+  color: $text-color;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+// LAYOUTS
+
+@mixin sectionLayout() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin lightGlassLayout() {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+@mixin glassLayout() {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.4px);
+  -webkit-backdrop-filter: blur(5.4px);
+}

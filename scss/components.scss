@@ -1,0 +1,25 @@
+.about-section {
+  @include sectionLayout();
+}
+
+.section-heading {
+  @include sectionHeading(#fff, 2.5rem);
+}
+
+.section-description {
+  @include sectionDescription();
+}
+
+.section-button a,
+.contact-button {
+  @include sectionButtons($main-color);
+  transition: all 0.3s ease-in;
+}
+
+.section-button a:hover,
+.contact-button:hover,
+.contact-button:link {
+  border: 1px solid #fff;
+  color: $text-color;
+  background-color: $main-color;
+}

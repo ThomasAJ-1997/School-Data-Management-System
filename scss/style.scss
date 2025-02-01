@@ -1,10 +1,16 @@
 @import "external.scss";
 @import "nav.scss";
+@import "components.scss";
+@import "responsive.scss";
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .home-section {
@@ -30,6 +36,15 @@
 .welcome-text h4 {
   @include heading(#eeeeee, 4rem);
 }
+.nav-glass {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1000;
+}
 
 .welcome-text p {
   color: #fff;
@@ -50,15 +65,181 @@
   border-radius: 5px;
 }
 
-#about .card-1 h5 {
+// ///////////////////////////////////////////
+.about-box {
+  height: 40vh;
+  width: 75%;
+  padding: 0 24px;
+  @include glassLayout();
+}
+
+.about-box h1 {
   font-family: "Lobster", cursive;
 }
 
-#contact {
-  min-height: 100vh;
+.section-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
 }
-#contact .contact-form {
-  max-width: 600px;
-  width: 90%;
-  background: rgba(255, 255, 255, 0.5);
+
+@media (max-width: 880px) {
+  .about-box {
+    height: 60vh;
+  }
+}
+
+// ////////////////////////////////////////////
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  width: 100%;
+  background: #001923;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(#ffeb3b, #e91e63);
+  border-radius: 50%;
+  transform: translate(-400px, -180px);
+}
+
+.contact-section::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(#2196f3, #83d8ff);
+  border-radius: 50%;
+  transform: translate(400px, 180px);
+}
+
+.contact-box {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  max-width: 1000px;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  backdrop-filter: blur(25px);
+}
+
+.contact-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  transform: skewX(-15deg);
+}
+
+.contact-box h2 {
+  width: 100%;
+  text-align: center;
+  color: $text-color;
+  font-size: 3.6rem;
+  margin-bottom: 2rem;
+  font-family: "Lobster", cursive;
+}
+
+.contact-box .row1 {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+.contact-box .row1 .col {
+  position: relative;
+  width: 100%;
+  padding: 0 10px;
+  margin: 30px 0 20px;
+}
+
+.contact-box .row1 .col .input-box {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+}
+
+.contact-box .row1 .col .input-box input,
+.contact-box .row1 .col .input-box textarea {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  padding: 0 10px;
+  z-index: 1;
+  color: #000;
+}
+
+.contact-box .row1 .col .input-box .contact-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 40px;
+  font-size: 18px;
+  padding: 0 10px;
+  display: block;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.contact-box .row1 .col .input-box input:focus ~ .contact-text,
+.contact-box .row1 .col .input-box input:valid ~ .contact-text,
+.contact-box .row1 .col .input-box textarea:focus ~ .contact-text,
+.contact-box .row1 .col .input-box textarea:valid ~ .contact-text {
+  top: -35px;
+  left: -10px;
+}
+
+.contact-box .row1 .col .input-box .line {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: $text-color;
+  transition: 0.5s;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.contact-box .row1 .col .input-box input:focus ~ .line,
+.contact-box .row1 .col .input-box input:valid ~ .line {
+  height: 100%;
+}
+
+.contact-box .row1 .col .input-box textarea:focus ~ .line,
+.contact-box .row1 .col .input-box textarea:valid ~ .line {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact-section::before {
+    transform: translate(-200px, -180px);
+  }
+  .contact-section::after {
+    transform: translate(200px, 180px);
+  }
 }
