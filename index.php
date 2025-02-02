@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
         rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- ICON -->
     <link rel="icon" href="icon.png">
 
@@ -25,7 +26,7 @@
                 <ul class="navbar">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about" class="active">About</a></li>
-                    <li><a href="#" class="active">Services</a></li>
+                    <li><a href="#service" class="active">Services</a></li>
                     <li><a href="#contact" class="active">Contact</a></li>
                 </ul>
 
@@ -44,7 +45,7 @@
                 <section id="home" class="welcome-text d-flex justify-content-center align-items-center flex-column">
                     <img src="icon.png" alt="ICON Student Compass">
                     <h4> Welcome to Student Compass </h4>
-                    <p>Student Data Management System designed for you in mind</p>
+                    <p>A Student Data Management System Designed For You In Mind</p>
                 </section>
 
                 <section id="about" class="about-section">
@@ -57,6 +58,33 @@
                         </p>
                         <div class="section-button">
                             <a class="home-button" href="#">Contact Us</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="service" class="service-section">
+                    <div class="service-box">
+                        <h4> Our Services </h4>
+                        <div class="box">
+                            <div class="icon"><i class="service-icon ri-search-line"></i></div>
+                            <div class="service-content">
+                                <h3>Pleaceholder</h3>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita veritatis iure iste eos laudantium alias magni vero tenetur placeat optio consequuntur, enim consectetur ipsa quia qui earum non ut asperiores!</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="icon"><i class="service-icon ri-contract-fill"></i></div>
+                            <div class="service-content">
+                                <h3>Pleaceholder</h3>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita veritatis iure iste eos laudantium alias magni vero tenetur placeat optio consequuntur, enim consectetur ipsa quia qui earum non ut asperiores!</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="icon"><i class=" service-icon ri-line-chart-fill"></i></div>
+                            <div class="service-content">
+                                <h3>Pleaceholder</h3>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita veritatis iure iste eos laudantium alias magni vero tenetur placeat optio consequuntur, enim consectetur ipsa quia qui earum non ut asperiores!</p>
+                            </div>
                         </div>
                     </div>
                 </section>

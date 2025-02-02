@@ -296,6 +296,7 @@ body {
 
 .welcome-text p {
   color: #fff;
+  font-family: "Lobster", cursive;
   font-size: 1.25rem;
   font-weight: 600;
   padding: 5px;
@@ -332,11 +333,105 @@ body {
 @media (max-width: 880px) {
   .about-box {
     height: 60vh; } }
+.service-section {
+  position: relative;
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.service-box h4 {
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Lobster" cursive;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-family: "Lobster", cursive; }
+
+@media (max-width: 1280px) {
+  .service-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; } }
+.service-section .box {
+  position: relative;
+  min-width: 400px;
+  height: 300px;
+  float: left;
+  margin: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.4px);
+  -webkit-backdrop-filter: blur(5.4px); }
+
+.service-section .box .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffc533;
+  transition: 0.5s;
+  z-index: 1; }
+
+.service-section .box:hover .icon {
+  top: 20px;
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; }
+
+.service-section .box .icon .service-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  transition: 0.5s;
+  color: #fff; }
+
+.service-section .box:hover .icon .service-icon {
+  font-size: 40px; }
+
+.service-section .box .service-content {
+  position: absolute;
+  top: 100%;
+  height: calc(100% - 100px);
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  opacity: 0; }
+
+.service-section .box:hover .service-content {
+  top: 80px;
+  opacity: 1; }
+
+.service-section .box .service-content h3 {
+  font-family: "Lobster", cursive;
+  font-size: 24px;
+  margin: 0 0 10px;
+  padding: 0;
+  color: #fff; }
+
+.service-section .box .service-content p {
+  margin: 0;
+  padding: 0;
+  color: #fff; }
+
 .contact-section {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin-top: 6rem;
   padding: 2rem;
   width: 100%;
   background: #001923; }
