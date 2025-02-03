@@ -31,7 +31,7 @@
                 </ul>
 
                 <div class="main">
-                    <a href="/login.php" class="user"><i class="ri-user-fill"></i>Sign In</a>
+                    <a href="login.php" class="user"><i class="ri-user-fill"></i>Sign In</a>
                     <div class="hamburger">
                         <span></span>
                         <span></span>
@@ -42,7 +42,7 @@
             <div>
 
                 <section id="home" class="welcome-text d-flex justify-content-center align-items-center flex-column">
-                    <img src="icon.png" alt="ICON Student Compass">
+                    <img src="imgs/icon.png" alt="ICON Student Compass">
                     <h4> Welcome to Student Compass </h4>
                     <p>A Student Data Management System Designed For You In Mind</p>
                 </section>

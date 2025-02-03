@@ -259,6 +259,13 @@ nav {
 
   #home p {
     font-size: 1rem; } }
+.dashboard-section {
+  background-color: white;
+  min-height: 100vh; }
+
+.w-450 {
+  width: 450px; }
+
 * {
   padding: 0;
   margin: 0;
@@ -266,6 +273,9 @@ nav {
 
 body {
   overflow-x: hidden; }
+
+.login-theme {
+  background: #001923; }
 
 .home-section {
   background: url("../imgs/homepage-frontofschool2.jpg");

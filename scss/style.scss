@@ -2,6 +2,7 @@
 @import "nav.scss";
 @import "components.scss";
 @import "responsive.scss";
+@import "dashboard.scss";
 
 * {
   padding: 0;
@@ -11,6 +12,11 @@
 
 body {
   overflow-x: hidden;
+  // background: #001923;
+}
+
+.login-theme {
+  background: #001923;
 }
 
 .home-section {

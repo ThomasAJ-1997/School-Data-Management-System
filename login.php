@@ -17,73 +17,64 @@
 
 </head>
 
-<body class="home-section">
-    <div class="home-section-black-fill"><br /> <br>
-        <div class="home-section-container">
-            <nav class="nav-glass">
-                <a href="/index.php" class="logo">Student Compass</a>
 
 
-                <div class="main">
-                    <a href="/ind" class="user">Back home</a>
-                </div>
-            </nav>
-            <div>
+<body class="login-theme">
 
-                <section id="home" class="welcome-text d-flex justify-content-center align-items-center flex-column">
-                    <img src="icon.png" alt="ICON Student Compass">
-                    <h4> Login to Student Compass </h4>
+    <section id="login" class="login-section contact-section">
+        <div class="contact-box login-box">
+            <h2> Login Portal </h2>
+            <form method="POST" action="includes/login.php">
 
-                    <a id="login-button" class="login-button" href="#login">Login Portal</a>
-
-                </section>
-
+                <?php if (isset($_GET['error'])) { ?>
+                    <div class="alert alert-warning" role="alert">
+                        <?= $_GET['error'] ?>
+                    </div>
+                <?php } ?>
 
 
-                <section id="login" class="contact-section">
-                    <div class="contact-box login-box">
-                        <h2> Login Portal </h2>
-
-                        <div class="row1">
-                            <div class="col">
-                                <div class="input-box">
-                                    <input id="inputEmail" type="text" name="" required="required">
-                                    <span class="contact-text">Username</span>
-                                    <span class="line"></span>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="input-box">
-                                    <input id="inputPassword" type="password" name="" required="required">
-                                    <span class="contact-text">Password</span>
-                                    <span class="line"></span>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="input-box">
-                                    <label for="form-label">Login as</label>
-                                    <select class="form-control">
-                                        <option value="1">Admin</option>
-                                        <option value="2">Student</option>
-                                        <option value="3">Teacher</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                        <div class="row1">
-                            <div class="col">
-                                <input id="login-button" class="contact-button" type="submit" value="Send">
-                            </div>
+                <div class="row1">
+                    <div class="col">
+                        <div class="input-box">
+                            <input id="inputEmail" type="text" name="uname" required="required">
+                            <span class="contact-text">Username</span>
+                            <span class="line"></span>
                         </div>
                     </div>
-                </section>
-            </div>
+
+                    <div class="col">
+                        <div class="input-box">
+                            <input id="inputPassword" type="password" name="pass" required="required">
+                            <span class="contact-text">Password</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="input-box">
+                            <label for="form-label">Login as</label>
+                            <select class="form-control" name="role">
+                                <option value="1">Admin</option>
+                                <option value="3">Student</option>
+                                <option value="2">Teacher</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row1">
+                    <div class="col">
+                        <input id="login-button" class="contact-button" type="submit" value="Send">
+                        <a class="home-button" href="index.php">Home</a>
+                    </div>
+                </div>
+            </form>
         </div>
+    </section>
+    </div>
+    </div>
     </div>
 
 
