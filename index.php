@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to StudentCompass</title>
+    <title>Login - StudentCompass</title>
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <!-- SASS/SCSS -->
@@ -31,8 +31,7 @@
                 </ul>
 
                 <div class="main">
-                    <a href="#" class="user"><i class="ri-user-fill"></i>Sign In</a>
-                    <a href="#">Register</a>
+                    <a href="/login.php" class="user"><i class="ri-user-fill"></i>Sign In</a>
                     <div class="hamburger">
                         <span></span>
                         <span></span>
@@ -57,7 +56,7 @@
                             For more information please feel free to contact us.
                         </p>
                         <div class="section-button">
-                            <a class="home-button" href="#">Contact Us</a>
+                            <a class="home-button" href="#contact">Contact Us</a>
                         </div>
                     </div>
                 </section>
@@ -93,58 +92,59 @@
                     <div class="contact-box">
                         <h2> Contact us </h2>
 
+                        <form action="">
+                            <div class="row1">
+                                <div class="col">
+                                    <div class="input-box">
+                                        <input type="text" name="" required="required">
+                                        <span class="contact-text">First Name</span>
+                                        <span class="line"></span>
+                                    </div>
+                                </div>
 
-                        <div class="row1">
-                            <div class="col">
-                                <div class="input-box">
-                                    <input type="text" name="" required="required">
-                                    <span class="contact-text">Fist Name</span>
-                                    <span class="line"></span>
+                                <div class="col">
+                                    <div class="input-box">
+                                        <input type="text" name="" required="required">
+                                        <span class="contact-text">Last Name</span>
+                                        <span class="line"></span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col">
-                                <div class="input-box">
-                                    <input type="text" name="" required="required">
-                                    <span class="contact-text">Last Name</span>
-                                    <span class="line"></span>
+                            <div class="row1">
+                                <div class="col">
+                                    <div class="input-box">
+                                        <input type="text" name="" required="required">
+                                        <span class="contact-text">Email</span>
+                                        <span class="line"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="input-box">
+                                        <input type="text" name="" required="required">
+                                        <span class="contact-text">Mobile</span>
+                                        <span class="line"></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="row1">
-                            <div class="col">
-                                <div class="input-box">
-                                    <input type="text" name="" required="required">
-                                    <span class="contact-text">Email</span>
-                                    <span class="line"></span>
+                            <div class="row1">
+                                <div class="col">
+                                    <div class="input-box textarea">
+                                        <textarea required="" name="" id=""></textarea>
+                                        <span class="contact-text">Type your message here...</span>
+                                        <span class="line"></span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col">
-                                <div class="input-box">
-                                    <input type="text" name="" required="required">
-                                    <span class="contact-text">Mobile</span>
-                                    <span class="line"></span>
+                            <div class="row1">
+                                <div class="col">
+                                    <input class="contact-button" type="submit" value="Send">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row1">
-                            <div class="col">
-                                <div class="input-box textarea">
-                                    <textarea required="" name="" id=""></textarea>
-                                    <span class="contact-text">Type your message here...</span>
-                                    <span class="line"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row1">
-                            <div class="col">
-                                <input class="contact-button" type="submit" value="Send">
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </section>
             </div>

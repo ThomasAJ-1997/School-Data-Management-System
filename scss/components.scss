@@ -11,14 +11,16 @@
 }
 
 .section-button a,
-.contact-button {
+.contact-button,
+.login-button {
   @include sectionButtons($main-color);
   transition: all 0.3s ease-in;
 }
 
 .section-button a:hover,
 .contact-button:hover,
-.contact-button:link {
+.contact-button:link,
+.login-button:hover {
   border: 1px solid #fff;
   color: $text-color;
   background-color: $main-color;
