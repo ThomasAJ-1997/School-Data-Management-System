@@ -24,14 +24,14 @@
                 <a href="#" class="logo">Student Compass</a>
 
                 <ul class="navbar">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about" class="active">About</a></li>
-                    <li><a href="#service" class="active">Services</a></li>
-                    <li><a href="#contact" class="active">Contact</a></li>
+                    <li><a href="#home" class="nav-links active">Home</a></li>
+                    <li><a href="#about" class="nav-links active">About</a></li>
+                    <li><a href="#service" class="nav-links active">Services</a></li>
+                    <li><a href="#contact" class="nav-links active">Contact</a></li>
                 </ul>
 
                 <div class="main">
-                    <a href="login.php" class="user"><i class="ri-user-fill"></i>Sign In</a>
+                    <a href="login.php" class="sign-in user"><i class="ri-user-fill"></i>Sign In</a>
                     <div class="hamburger">
                         <span></span>
                         <span></span>

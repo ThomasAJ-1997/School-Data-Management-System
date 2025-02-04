@@ -6,8 +6,8 @@
   font-weight: 400;
 }
 
-li a,
-.main a {
+.navbar .nav-links,
+.main .sign-in {
   text-decoration: none;
   font-size: 1.4rem;
   font-weight: 400;
@@ -64,7 +64,7 @@ nav {
 }
 
 @media (max-width: 1280px) {
-  nav {
+  .nav-glass {
     padding: 14px 2%;
     transition: 0.2s;
   }

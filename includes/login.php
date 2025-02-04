@@ -49,17 +49,20 @@ if (
             $username = $user['username'];
             $password = $user['password'];
             $fname = $user['fname'];
-            $id = $user['id'];
+
 
             if ($username === $uname) {
                 if ($hashedPassword = password_hash($pass, PASSWORD_BCRYPT)) {
-                    $_SESSION['id'] = $id;
-                    $_SESSION['fname'] = $fname;
-                    $_SESSION['role'] = $role;
 
-                    $em  = "Incorrect Username or Password";
-                    header("Location: ../home.php");
-                    exit;
+                    $_SESSION['role'] = $role;
+                    $_SESSION['fname'] = $fname;
+
+                    if ($role == 'Admin') {
+                        $id = $user['admin_id'];
+                        $_SESSION['admin_id'] = $id;
+                        header("Location: ../admin/index.php");
+                        exit;
+                    }
                 } else {
                     $em  = "Incorrect Username or Password";
                     header("Location: ../login.php?error=$em");

@@ -5,3 +5,6 @@ hamMenu.addEventListener("click", () => {
   hamMenu.classList.toggle("active");
   navMenuPopUp.classList.toggle("active");
 });
+
+////////////////////////////////////////////////////////////////////////////////////
+// DASHBOARD NAVIGATION
