@@ -274,7 +274,7 @@
   display: flex; }
 
 .main-wrap .main-head {
-  width: 10rem;
+  max-width: 9.5rem;
   height: 100vh;
   background: #01003d;
   overflow: hidden;
@@ -366,11 +366,21 @@
 
 .content-text {
   margin-top: 2rem;
-  font-family: "Lobster", cursive; }
+  font-family: "Lobster", cursive;
+  color: #222327; }
 
 .admin-img {
   margin: 1rem 1rem;
   height: 4rem; }
+
+.active span {
+  text-decoration: underline; }
+
+.main-section {
+  width: 100rem; }
+
+.container {
+  max-width: 60rem; }
 
 * {
   padding: 0;

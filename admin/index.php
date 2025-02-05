@@ -22,111 +22,111 @@ if (
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
             <!-- SASS/SCSS -->
             <link rel="stylesheet" href="../css/style.css">
-            <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-                rel="stylesheet">
+            <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
             <!-- ICON -->
             <link rel="icon" href="../imgs/icon.png">
+            <!-- JQuery -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+            <script src="../js/js_nav.js"></script>
 
         </head>
 
         <body>
-            <main class="main-wrap">
-                <header class="main-head">
-                    <div class="main-nav">
-                        <nav class="dashboard-navbar">
-                            <div class="navbar-nav">
-                                <ul class="nav-list">
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-dashboard-horizontal-fill"></i>
-                                            <span class="link-text">Dashboard</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-account-box-fill"></i>
-                                            <span class="link-text">Teacher</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-group-fill"></i>
-                                            <span class="link-text">Student</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-profile-fill"></i>
-                                            <span class="link-text">Office </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-file-user-fill"></i>
-                                            <span class="link-text">Class</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-school-fill"></i>
-                                            <span class="link-text">Section</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-calendar-check-fill"></i>
-                                            <span class="link-text">Schedule</span>
-                                        </a>
-                                    </li>
 
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-presentation-fill"></i>
-                                            <span class="link-text">Course</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-mail-fill"></i>
-                                            <span class="link-text">Messages</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-settings-3-fill"></i>
-                                            <span class="link-text">Settings</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-list-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="ri-logout-box-line"></i>Logout
-                                        </a>
-                                    </li>
-                                </ul>
+
+
+
+            <main class="main-wrap">
+                <?php include "includes/navbar.php"; ?>
+
+                <section class="main-section">
+                    <div class="showcase">
+                        <div class="welcome">
+                            <div class="img-content">
+                                <img class="admin-img" src="../imgs/icon.png" alt="Student Compass">
                             </div>
-                        </nav>
-                    </div>
-                </header>
-                <section class="showcase">
-                    <div class="welcome">
-                        <div class="img-content">
-                            <img class="admin-img" src="../imgs/icon.png" alt="Student Compass">
+                            <div class="content-text">
+                                <h3>Welcome <?= $_SESSION['fname'] ?></h3>
+                            </div>
                         </div>
-                        <div class="content-text">
-                            <h3>Welcome <?= $_SESSION['fname'] ?></h3>
+                    </div>
+
+                    <div class="container mt-2">
+                        <div class="container text-center">
+                            <div class="row row-cols-5">
+                                <a href="teacher.php"
+                                    class="col btn btn-dark m-2 py-3">
+                                    <i class="fa fa-user fs-1" aria-hidden="true"></i><br>
+                                    Teachers
+                                </a>
+                                <a href="" class="col btn btn-dark m-2 py-3">
+                                    <i class="fa fa-graduation-cap fs-1" aria-hidden="true"></i><br>
+                                    Students
+                                </a>
+                                <a href="" class="col btn btn-dark m-2 py-3">
+                                    <i class="fa fa-briefcase fs-1" aria-hidden="true"></i><br>
+                                    Register Office
+                                </a>
+                                <a href="" class="col btn btn-dark m-2 py-3">
+                                    <i class="fa fa-cubes fs-1" aria-hidden="true"></i><br>
+                                    Class
+                                </a>
+                                <a href="" class="col btn btn-dark m-2 py-3">
+                                    <i class="fa fa-address-book fs-1" aria-hidden="true"></i><br>
+                                    Section
+                                </a>
+                                <a href="" class="col btn btn-dark m-2 py-3">
+                                    <i class="fa fa-calendar-check-o fs-1" aria-hidden="true"></i><br>
+                                    Schedule
+                                </a>
+                                <a href="" class="col btn btn-dark m-2 py-3">
+                                    <i class="fa fa-book fs-1" aria-hidden="true"></i><br>
+                                    Course
+                                </a>
+                                <a href="" class="col btn btn-dark m-2 py-3">
+                                    <i class="fa fa-envelope fs-1" aria-hidden="true"></i><br>
+                                    Message
+                                </a>
+                                <a href="" class="col btn btn-secondary m-2 py-3 col-5">
+                                    <i class="fa fa-bar-chart fs-1" aria-hidden="true"></i><br>
+                                    Data & Analytics
+                                </a>
+                                <a href="" class="col btn btn-secondary m-2 py-3 col-5">
+                                    <i class="fa fa-desktop fs-1" aria-hidden="true"></i><br>
+                                    IT Support
+                                </a>
+                                <a href="" class="col btn btn-danger m-2 py-3 col-5">
+                                    <i class="fa fa-exclamation-triangle fs-1" aria-hidden="true"></i><br>
+                                    Finance Alerts
+                                </a>
+                                <a href="" class="col btn btn-success m-2 py-3 col-5">
+                                    <i class="fa fa-video-camera fs-1" aria-hidden="true"></i><br>
+                                    Media & Live Recordings
+                                </a>
+                                <a href="" class="col btn btn-primary m-2 py-3 col-5">
+                                    <i class="fa fa-cogs fs-1" aria-hidden="true"></i><br>
+                                    Settings
+                                </a>
+                                <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-5">
+                                    <i class="fa fa-sign-out fs-1" aria-hidden="true"></i><br>
+                                    Logout
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-            </main>
 
+            </main>
 
 
             <!-- BOOTSTRAP -->
             <script src="js/script.js"></script>
             <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
         </body>
 
         </html>
