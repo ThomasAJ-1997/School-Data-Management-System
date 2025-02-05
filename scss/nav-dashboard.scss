@@ -1,1 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
 @import "../scss/external.scss";
+
+.dashboard-header {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.nav-links {
+  text-decoration: none;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.main-wrap {
+  width: 100%;
+  display: flex;
+}
+
+.main-wrap .main-head {
+  width: 10rem;
+  height: 100vh;
+  background: #01003d;
+  overflow: hidden;
+  transition: 0.3 ease-in;
+}
+
+.main-wrap .main-head .main-nav {
+  width: 100%;
+}
+
+.main-wrap .main-head .main-nav .dashboard-navbar {
+  width: 100%;
+}
+
+.main-wrap .main-head .main-nav .dashboard-navbar .navbar-nav .title {
+  padding: 15px 19px;
+  border-bottom: 1px solid $bg-color;
+}
+
+.main-wrap
+  .main-head
+  .main-nav
+  .dashboard-navbar
+  .navbar-nav
+  .title
+  .dashboard-header {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 35px;
+  color: #222;
+  position: relative;
+}
+
+.main-wrap
+  .main-head
+  .main-nav
+  .dashboard-navbar
+  .navbar-nav
+  .title
+  .dashboard-header
+  .title-text {
+  position: absolute;
+  left: 35px;
+  opacity: 1;
+  transition: 0.2 ease;
+}
+
+.main-wrap .main-head .main-nav .dashboard-navbar .navbar-nav .nav-list {
+  margin: 0;
+  padding: 10px 10px;
+}
+
+.main-wrap
+  .main-head
+  .main-nav
+  .dashboard-navbar
+  .navbar-nav
+  .nav-list
+  .nav-list-item {
+  padding: 10px 15px;
+  list-style: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  background: #01003d;
+}
+
+.main-wrap
+  .main-head
+  .main-nav
+  .dashboard-navbar
+  .navbar-nav
+  .nav-list
+  .nav-list-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.main-wrap
+  .main-head
+  .main-nav
+  .dashboard-navbar
+  .navbar-nav
+  .nav-list
+  .nav-list-item {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #fff;
+  position: relative;
+}
+
+.welcome {
+  display: flex;
+}
+
+.content-text {
+  margin-top: 2rem;
+  font-family: "Lobster", cursive;
+}
+
+.admin-img {
+  margin: 1rem 1rem;
+  height: 4rem;
+}
