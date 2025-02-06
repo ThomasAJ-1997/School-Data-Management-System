@@ -4,13 +4,13 @@
             <div class="navbar-nav">
                 <ul class="nav-list" id="navLinks">
                     <li class="nav-list-item">
-                        <a href="#" class="nav-link">
+                        <a href="index.php" class="nav-link">
                             <i class="ri-dashboard-horizontal-fill"></i>
                             <span class="link-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-list-item">
-                        <a href="#" class="nav-link">
+                        <a href="teacher.php" class="nav-link">
                             <i class="ri-account-box-fill"></i>
                             <span class="link-text">Teacher</span>
                         </a>

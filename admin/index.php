@@ -17,7 +17,7 @@ if (
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Login - StudentCompass</title>
+            <title> Admin - Home</title>
             <!-- BOOTSTRAP -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
             <!-- SASS/SCSS -->
@@ -99,7 +99,7 @@ if (
                                 </a>
                                 <a href="" class="col btn btn-danger m-2 py-3 col-5">
                                     <i class="fa fa-exclamation-triangle fs-1" aria-hidden="true"></i><br>
-                                    Finance Alerts
+                                    Maintenance Alerts
                                 </a>
                                 <a href="" class="col btn btn-success m-2 py-3 col-5">
                                     <i class="fa fa-video-camera fs-1" aria-hidden="true"></i><br>
@@ -126,6 +126,12 @@ if (
             <script src="js/script.js"></script>
             <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+            <script>
+                $(document).ready(function() {
+                    $("#navLinks li:nth-child(1) a").addClass("active");
+                });
+            </script>
 
         </body>
 
