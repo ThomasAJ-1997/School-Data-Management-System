@@ -8,11 +8,16 @@ if (
     if ($_SESSION['role'] == 'Admin') {
         include "../db_connection.php";
         include "data/teacher.php";
+        include "data/subject.php";
+        include "data/grade.php";
+
         $teachers = allTeachers($conn);
-        // print_r($teachers);
 
 
-
+        // print_r($subjects);
+        // echo "<pre>";
+        // print_r($subjects);
+        // echo "</pre>";
 
 ?>
 
@@ -50,7 +55,7 @@ if (
                 ?>
 
                     <div class="move-left container mt-5">
-                        <a class="btn btn-dark" href="">Add New Teacher</a>
+                        <a class="btn btn-dark" href="teacher-add.php">Add New Teacher</a>
 
                         <div class="table-responsive">
 
@@ -75,8 +80,35 @@ if (
                                             <td><?= $teacher['fname'] ?></td>
                                             <td><?= $teacher['lname'] ?></td>
                                             <td><?= $teacher['username'] ?></td>
-                                            <td><?= $teacher['subject'] ?></td>
-                                            <td><?= $teacher['grade'] ?></td>
+                                            <td>
+                                                <?php
+                                                $s = '';
+                                                $subjects = str_split(trim($teacher['subject_type']));
+
+                                                foreach ($subjects as $subject) {
+                                                    $s_temp = getSubjectById($subject, $conn);
+
+                                                    if ($s_temp != 0) {
+                                                        $s .= $s_temp['subject_code'] . ', ';
+                                                    }
+                                                }
+
+                                                echo ' ' . $s;
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                $g = '';
+                                                $grades = str_split(trim($teacher['grade_type']));
+                                                foreach ($grades as $grade) {
+                                                    $g_temp = getGradeById($grade, $conn);
+                                                    if ($g_temp != 0)
+                                                        $g .= $g_temp['grade_code'] . '-' .
+                                                            $g_temp['grade_type'] . ', ';
+                                                }
+                                                echo ' ' . $g;
+                                                ?>
+                                            </td>
                                             <td>
                                                 <a href="" class="btn btn-warning">Edit</a>
                                                 <a href="" class="btn btn-danger">Delete</a>

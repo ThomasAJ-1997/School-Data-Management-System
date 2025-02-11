@@ -176,6 +176,10 @@
   color: #fff;
   background-color: #ffc533; }
 
+.form-w {
+  max-width: 600px;
+  width: 100%; }
+
 @media (max-width: 1280px) {
   .nav-glass {
     padding: 14px 2%;
