@@ -1,8 +1,8 @@
 <?php
 
-function getAllGrades($conn)
+function allGrades($conn)
 {
-    $sql = "SELECT * FROM grades";
+    $sql = "SELECT * FROM grade";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 

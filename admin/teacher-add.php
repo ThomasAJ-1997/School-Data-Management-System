@@ -6,18 +6,20 @@ if (
 ) {
 
     if ($_SESSION['role'] == 'Admin') {
+
         include "../db_connection.php";
-        include "data/teacher.php";
         include "data/subject.php";
         include "data/grade.php";
+        $subjects = allSubjects($conn);
+        $grades = allGrades($conn);
 
-        $teachers = allTeachers($conn);
+        $fname = '';
+        $lname = '';
+        $uname = '';
 
-
-        // print_r($subjects);
-        // echo "<pre>";
-        // print_r($subjects);
-        // echo "</pre>";
+        if (isset($_GET['fname'])) $fname = $_GET['fname'];
+        if (isset($_GET['lname'])) $fname = $_GET['lname'];
+        if (isset($_GET['uname'])) $fname = $_GET['uname'];
 
 ?>
 
@@ -58,17 +60,69 @@ if (
                 <div class="move-left container mt-5">
                     <a class="btn btn-dark" href="teacher.php">Go Back</a>
 
-                    <form method="POST" class="shadow p-3 mt-4" action="">
+                    <form method="POST" class="shadow p-3 mt-4" action="req/teacher-add.php">
                         <div class=" form-group form-w">
-                            <h3 class="mt-3">Add New User</h3>
+                            <h3 class="mt-1">Add New Teacher</h3>
+                            <?php if (isset($_GET['error'])) { ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?= $_GET['error'] ?>
+                                </div>
+                            <?php } ?>
 
-                            <label class="mt-4" for="exampleInputEmail1">First Name</label>
-                            <input type="text" class="form-control mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter First Name"
+                            <?php if (isset($_GET['success'])) { ?>
+                                <div class="alert alert-success" role="alert">
+                                    <?= $_GET['success'] ?>
+                                </div>
+                            <?php } ?>
+
+                            <label class="mt-4" for="fnameInput">First Name</label>
+                            <input type="text" class="form-control mt-2" id="fnameInput"
+                                value="<?= $fname ?>"
                                 name="fname">
 
-                            <label class="mt-4" for="exampleInputEmail1">Last Name</label>
-                            <input type="text" class="form-control mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Surname"
+                            <label class="mt-4" for="lnameInput">Last Name</label>
+                            <input type="text" class="form-control mt-2" id="lnameInput"
+                                value="<?= $lname ?>"
                                 name="lname">
+
+                            <label class="mt-4" for="userInput">Username</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value="<?= $uname ?>"
+                                name="username">
+
+                            <label class="mt-4" for="passInput">Password</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control mt-2" id="passInput"
+                                    name="pass">
+                                <button class="btn btn-secondary mt-2" id="gBtn">Random</button>
+                            </div>
+
+
+                            <label class="mt-4" for="subjectInput">Subject</label>
+                            <div class="row row-cols-5">
+                                <?php foreach ($subjects as $subject): ?>
+                                    <div class="col">
+                                        <input type="checkbox" id="subjectInput"
+                                            name="subjects[]"
+                                            value="<?= $subject['subject_id'] ?>">
+                                        <?= $subject['subject_type'] ?>
+                                    </div>
+                                <?php endforeach ?>
+                            </div>
+
+
+                            <label class="mt-4" for="gradeInput">Grade</label>
+                            <div class="row row-cols-5">
+                                <?php foreach ($grades as $grade): ?>
+                                    <div class="col">
+                                        <input type="checkbox"
+                                            name="grades[]"
+                                            value="<?= $grade['grade_id'] ?>">
+                                        <?= $grade['grade_code'] ?><?= $grade['grade_type'] ?>
+                                    </div>
+                                <?php endforeach ?>
+                            </div>
+
 
                         </div>
 
@@ -83,6 +137,7 @@ if (
 
                 <!-- BOOTSTRAP -->
                 <script src="js/script.js"></script>
+                <script src="../js/generatePass.js"></script>
                 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
