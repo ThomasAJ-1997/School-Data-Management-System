@@ -28,3 +28,17 @@ function unameIsUnique($uname, $conn)
         return 1;
     }
 }
+
+function deleteTeacher($id, $conn)
+{
+    $sql = 'DELETE FROM teacher WHERE teacher_id=?';
+
+    $stmt = $conn->prepare($sql);
+    $re = $stmt->execute([$id]);
+
+    if ($re) {
+        return 1;
+    } else {
+        return 0;
+    }
+}

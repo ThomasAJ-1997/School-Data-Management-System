@@ -16,7 +16,7 @@
                         </a>
                     </li>
                     <li class="nav-list-item">
-                        <a href="#" class="nav-link">
+                        <a href="student.php" class="nav-link">
                             <i class="ri-group-fill"></i>
                             <span class="link-text">Student</span>
                         </a>
