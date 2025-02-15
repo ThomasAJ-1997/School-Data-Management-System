@@ -15,17 +15,44 @@ function allTeachers($conn)
     }
 }
 
-function unameIsUnique($uname, $conn)
+function getTeachertById($teacher_id, $conn)
 {
-    $sql = 'SELECT username FROM teacher WHERE username=?';
+    $sql = 'SELECT * FROM teacher WHERE teacher_id=?';
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$teacher_id]);
+
+    if ($stmt->rowCount() == 1) {
+        $teacher = $stmt->fetch();
+        return $teacher;
+    } else {
+        return 0;
+    }
+}
+
+
+function unameIsUnique($uname, $conn, $teacher_id = 0)
+{
+    $sql = 'SELECT username, teacher_id FROM teacher WHERE username=?';
 
     $stmt = $conn->prepare($sql);
     $stmt->execute([$uname]);
 
-    if ($stmt->rowCount() >= 1) {
-        return 0;
+    if ($teacher_id == 0) {
+        if ($stmt->rowCount() >= 1) {
+            return 0;
+        } else {
+            return 1;
+        }
     } else {
-        return 1;
+        if ($stmt->rowCount() >= 1) {
+            $teacher = $stmt->fetch();
+            if ($teacher['teacher_id'] == $teacher_id) {
+                return 1;
+            } else return 0;
+        } else {
+            return 1;
+        }
     }
 }
 

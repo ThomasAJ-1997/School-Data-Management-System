@@ -2,7 +2,8 @@
 session_start();
 if (
     isset($_SESSION['admin_id']) &&
-    isset($_SESSION['role'])
+    isset($_SESSION['role']) &&
+    isset($_GET['teacher_id'])
 ) {
 
     if ($_SESSION['role'] == 'Admin') {
@@ -10,16 +11,18 @@ if (
         include "../db_connection.php";
         include "data/subject.php";
         include "data/grade.php";
+        include "data/teacher.php";
         $subjects = allSubjects($conn);
         $grades = allGrades($conn);
+        $teacher_id = $_GET['teacher_id'];
+        $teacher = getTeachertById($teacher_id, $conn);
 
-        $fname = '';
-        $lname = '';
-        $uname = '';
+        if ($teacher == 0) {
+            header("Location: teacher.php");
+            exit;
+        }
 
-        if (isset($_GET['fname'])) $fname = $_GET['fname'];
-        if (isset($_GET['lname'])) $fname = $_GET['lname'];
-        if (isset($_GET['uname'])) $fname = $_GET['uname'];
+
 
 ?>
 
@@ -60,7 +63,7 @@ if (
                 <div class="move-left container mt-5">
                     <a class="btn btn-dark" href="teacher.php">Go Back</a>
 
-                    <form method="POST" class="shadow p-3 mt-4" action="req/teacher-add.php">
+                    <form method="POST" class="shadow p-3 mt-4" action="req/teacher-edit.php">
                         <div class=" form-group form-w">
                             <h3 class="mt-1">Edit Teacher</h3>
                             <?php if (isset($_GET['error'])) { ?>
@@ -77,52 +80,80 @@ if (
 
                             <label class="mt-4" for="fnameInput">First Name</label>
                             <input type="text" class="form-control mt-2" id="fnameInput"
-                                value="<?= $fname ?>"
+                                value="<?= $teacher['fname'] ?>"
                                 name="fname">
 
                             <label class="mt-4" for="lnameInput">Last Name</label>
                             <input type="text" class="form-control mt-2" id="lnameInput"
-                                value="<?= $lname ?>"
+                                value="<?= $teacher['lname'] ?>"
                                 name="lname">
 
                             <label class="mt-4" for="userInput">Username</label>
                             <input type="text" class="form-control mt-2" id="userInput"
-                                value="<?= $uname ?>"
+                                value="<?= $teacher['username'] ?>"
                                 name="username">
+
+                            <div class="mt-3 hidden-element">
+                                <input type="text"
+                                    value="<?= $teacher['teacher_id'] ?>"
+                                    name="teacher_id"
+                                    hidden>
+                            </div>
+
 
                             <label class="mt-4" for="subjectInput">Subject</label>
                             <div class="row row-cols-5">
-                                <?php foreach ($subjects as $subject): ?>
+                                <?php
+                                $subjects_ids = str_split(trim($teacher['subject_type']));
+                                foreach ($subjects as $subject) {
+                                    $checked = 0;
+                                    foreach ($subjects_ids as $subjects_id) {
+                                        if ($subjects_id == $subject['subject_id']) {
+                                            $checked = 1;
+                                        }
+                                    }
+                                ?>
                                     <div class="col">
                                         <input type="checkbox" id="subjectInput"
                                             name="subjects[]"
+                                            <?php if ($checked) echo "checked"; ?>
                                             value="<?= $subject['subject_id'] ?>">
                                         <?= $subject['subject_type'] ?>
                                     </div>
-                                <?php endforeach ?>
+                                <?php } ?>
                             </div>
 
 
                             <label class="mt-4" for="gradeInput">Grade</label>
                             <div class="row row-cols-5">
-                                <?php foreach ($grades as $grade): ?>
+                                <?php
+                                $grades_ids = str_split(trim($teacher['grade_type']));
+                                foreach ($grades as $grade) {
+                                    $checked = 0;
+                                    foreach ($grades_ids as $grades_id) {
+                                        if ($grades_id == $grade['grade_id']) {
+                                            $checked = 1;
+                                        }
+                                    }
+                                ?>
                                     <div class="col">
                                         <input type="checkbox"
                                             name="grades[]"
+                                            <?php if ($checked) echo "checked" ?>
                                             value="<?= $grade['grade_id'] ?>">
                                         <?= $grade['grade_code'] ?><?= $grade['grade_type'] ?>
                                     </div>
-                                <?php endforeach ?>
+                                <?php } ?>
                             </div>
 
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary mt-4">Add</button>
+                        <button type="submit" class="btn btn-primary mt-4">Update Record</button>
                     </form>
 
-                    <form method="POST" class="shadow p-3 mt-4" action="req/teacher-add.php">
 
+                    <form method="POST" class="shadow p-3 mt-4" action="req/teacher-add.php">
                         <h3 class="mt-1">Change Password</h3>
                         <?php if (isset($_GET['error'])) { ?>
                             <div class="alert alert-danger" role="alert">
@@ -172,11 +203,11 @@ if (
 
 <?php
     } else {
-        header("Location: ../login.php");
+        header("Location: teacher.php");
         exit;
     }
 } else {
-    header("Location: ../login.php");
+    header("Location: teacher.php");
     exit;
 }
 
