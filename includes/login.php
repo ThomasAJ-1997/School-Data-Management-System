@@ -52,7 +52,7 @@ if (
 
 
             if ($username === $uname) {
-                if ($hashedPassword = password_hash($pass, PASSWORD_BCRYPT)) {
+                if ($password === $pass) {
 
                     $_SESSION['role'] = $role;
                     $_SESSION['fname'] = $fname;

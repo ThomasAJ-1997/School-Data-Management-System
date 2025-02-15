@@ -60,8 +60,8 @@ if (
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([$uname, $fname, $lname, $subjects, $grades, $teacher_id]);
 
-                $sm = "Sucessfully updated Teacher's record";
-                header("Location: ../teacher-edit.php?success=$sm");
+                $sm = "Sucessfully Updated!";
+                header("Location: ../teacher-edit.php?success=$sm&$data");
                 exit;
             }
         } else {

@@ -153,33 +153,59 @@ if (
                     </form>
 
 
-                    <form method="POST" class="shadow p-3 mt-4" action="req/teacher-add.php">
+                    <form method="POST" class="shadow p-4 mt-4 mb-2" action="req/teacher-change.php" id="change_password">
                         <h3 class="mt-1">Change Password</h3>
-                        <?php if (isset($_GET['error'])) { ?>
+                        <?php if (isset($_GET['perror'])) { ?>
                             <div class="alert alert-danger" role="alert">
-                                <?= $_GET['error'] ?>
+                                <?= $_GET['perror'] ?>
                             </div>
                         <?php } ?>
 
-                        <?php if (isset($_GET['success'])) { ?>
+                        <?php if (isset($_GET['psuccess'])) { ?>
                             <div class="alert alert-success" role="alert">
-                                <?= $_GET['success'] ?>
+                                <?= $_GET['psuccess'] ?>
                             </div>
                         <?php } ?>
 
 
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label class="form-label">Admin password</label>
+                                <input type="password"
+                                    class="form-control"
+                                    name="admin_pass">
+                            </div>
 
-                        <label class="mt-4" for="passInput">Password</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control mt-2" id="passInput"
-                                name="pass">
-                            <button class="btn btn-secondary mt-2" id="gBtn">Random</button>
-                        </div>
+                            <div class="mt-3 hidden-element">
+                                <input type="text"
+                                    value="<?= $teacher['teacher_id'] ?>"
+                                    name="teacher_id"
+                                    hidden>
+                            </div>
+
+                            <label class="form-label">New password </label>
+                            <div class="input-group mb-3">
+                                <input type="text"
+                                    class="form-control"
+                                    name="new_pass"
+                                    id="passInput">
+                                <button class="btn btn-secondary"
+                                    id="gBtn">
+                                    Random</button>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Confirm new password </label>
+                                <input type="text"
+                                    class="form-control"
+                                    name="c_new_pass"
+                                    id="passInput2">
+                            </div>
+                            <button type="submit"
+                                class="btn btn-primary">
+                                Change Password</button>
 
                     </form>
-
-
-
                 </div>
                 </div>
 

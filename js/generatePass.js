@@ -9,7 +9,10 @@ function makePass(length) {
     counter += 1;
   }
   let passInput = document.getElementById("passInput");
+  let passInput2 = document.getElementById("passInput2");
+
   passInput.value = result;
+  passInput2.value = result;
 }
 
 let gBtn = document.getElementById("gBtn");
