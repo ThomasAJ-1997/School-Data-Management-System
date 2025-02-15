@@ -22,8 +22,9 @@
   max-width: 9.5rem;
   height: 100vh;
   background: #01003d;
-  overflow: hidden;
   transition: 0.3 ease-in;
+  position: fixed;
+  overflow: hidden;
 }
 
 .main-wrap .main-head .main-nav {
@@ -137,4 +138,5 @@
 
 .main-section {
   width: 100rem;
+  margin-left: 10rem;
 }

@@ -37,86 +37,87 @@ if (
 
 
 
+            <section class="dashboard-section">
+                <main class="main-wrap">
+                    <?php include "includes/navbar.php"; ?>
 
-            <main class="main-wrap">
-                <?php include "includes/navbar.php"; ?>
-
-                <section class="main-section">
-                    <div class="showcase">
-                        <div class="welcome">
-                            <div class="img-content">
-                                <img class="admin-img" src="../imgs/icon.png" alt="Student Compass">
-                            </div>
-                            <div class="content-text">
-                                <h3>Welcome <?= $_SESSION['fname'] ?></h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container mt-2">
-                        <div class="container text-center">
-                            <div class="row row-cols-5">
-                                <a href="teacher.php"
-                                    class="col btn btn-dark m-2 py-3">
-                                    <i class="fa fa-user fs-1" aria-hidden="true"></i><br>
-                                    Teachers
-                                </a>
-                                <a href="student.php" class="col btn btn-dark m-2 py-3">
-                                    <i class="fa fa-graduation-cap fs-1" aria-hidden="true"></i><br>
-                                    Students
-                                </a>
-                                <a href="" class="col btn btn-dark m-2 py-3">
-                                    <i class="fa fa-briefcase fs-1" aria-hidden="true"></i><br>
-                                    Register Office
-                                </a>
-                                <a href="" class="col btn btn-dark m-2 py-3">
-                                    <i class="fa fa-cubes fs-1" aria-hidden="true"></i><br>
-                                    Class
-                                </a>
-                                <a href="" class="col btn btn-dark m-2 py-3">
-                                    <i class="fa fa-address-book fs-1" aria-hidden="true"></i><br>
-                                    Section
-                                </a>
-                                <a href="" class="col btn btn-dark m-2 py-3">
-                                    <i class="fa fa-calendar-check-o fs-1" aria-hidden="true"></i><br>
-                                    Schedule
-                                </a>
-                                <a href="" class="col btn btn-dark m-2 py-3">
-                                    <i class="fa fa-book fs-1" aria-hidden="true"></i><br>
-                                    Course
-                                </a>
-                                <a href="" class="col btn btn-dark m-2 py-3">
-                                    <i class="fa fa-envelope fs-1" aria-hidden="true"></i><br>
-                                    Message
-                                </a>
-                                <a href="" class="col btn btn-secondary m-2 py-3 col-5">
-                                    <i class="fa fa-bar-chart fs-1" aria-hidden="true"></i><br>
-                                    Data & Analytics
-                                </a>
-                                <a href="" class="col btn btn-secondary m-2 py-3 col-5">
-                                    <i class="fa fa-desktop fs-1" aria-hidden="true"></i><br>
-                                    IT Support
-                                </a>
-                                <a href="" class="col btn btn-danger m-2 py-3 col-5">
-                                    <i class="fa fa-exclamation-triangle fs-1" aria-hidden="true"></i><br>
-                                    Maintenance Alerts
-                                </a>
-                                <a href="" class="col btn btn-success m-2 py-3 col-5">
-                                    <i class="fa fa-video-camera fs-1" aria-hidden="true"></i><br>
-                                    Media & Live Recordings
-                                </a>
-                                <a href="" class="col btn btn-primary m-2 py-3 col-5">
-                                    <i class="fa fa-cogs fs-1" aria-hidden="true"></i><br>
-                                    Settings
-                                </a>
-                                <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-5">
-                                    <i class="fa fa-sign-out fs-1" aria-hidden="true"></i><br>
-                                    Logout
-                                </a>
+                    <section class="main-section">
+                        <div class="showcase">
+                            <div class="welcome">
+                                <div class="img-content">
+                                    <img class="admin-img" src="../imgs/icon.png" alt="Student Compass">
+                                </div>
+                                <div class="content-text">
+                                    <h3>Welcome <?= $_SESSION['fname'] ?></h3>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+
+                        <div class="container mt-2">
+                            <div class="container text-center">
+                                <div class="row row-cols-5">
+                                    <a href="teacher.php"
+                                        class="col btn btn-dark m-2 py-3">
+                                        <i class="fa fa-user fs-1" aria-hidden="true"></i><br>
+                                        Teachers
+                                    </a>
+                                    <a href="student.php" class="col btn btn-dark m-2 py-3">
+                                        <i class="fa fa-graduation-cap fs-1" aria-hidden="true"></i><br>
+                                        Students
+                                    </a>
+                                    <a href="" class="col btn btn-dark m-2 py-3">
+                                        <i class="fa fa-briefcase fs-1" aria-hidden="true"></i><br>
+                                        Register Office
+                                    </a>
+                                    <a href="" class="col btn btn-dark m-2 py-3">
+                                        <i class="fa fa-cubes fs-1" aria-hidden="true"></i><br>
+                                        Class
+                                    </a>
+                                    <a href="" class="col btn btn-dark m-2 py-3">
+                                        <i class="fa fa-address-book fs-1" aria-hidden="true"></i><br>
+                                        Section
+                                    </a>
+                                    <a href="" class="col btn btn-dark m-2 py-3">
+                                        <i class="fa fa-calendar-check-o fs-1" aria-hidden="true"></i><br>
+                                        Schedule
+                                    </a>
+                                    <a href="" class="col btn btn-dark m-2 py-3">
+                                        <i class="fa fa-book fs-1" aria-hidden="true"></i><br>
+                                        Course
+                                    </a>
+                                    <a href="" class="col btn btn-dark m-2 py-3">
+                                        <i class="fa fa-envelope fs-1" aria-hidden="true"></i><br>
+                                        Message
+                                    </a>
+                                    <a href="" class="col btn btn-secondary m-2 py-3 col-5">
+                                        <i class="fa fa-bar-chart fs-1" aria-hidden="true"></i><br>
+                                        Data & Analytics
+                                    </a>
+                                    <a href="" class="col btn btn-secondary m-2 py-3 col-5">
+                                        <i class="fa fa-desktop fs-1" aria-hidden="true"></i><br>
+                                        IT Support
+                                    </a>
+                                    <a href="" class="col btn btn-danger m-2 py-3 col-5">
+                                        <i class="fa fa-exclamation-triangle fs-1" aria-hidden="true"></i><br>
+                                        Maintenance Alerts
+                                    </a>
+                                    <a href="" class="col btn btn-success m-2 py-3 col-5">
+                                        <i class="fa fa-video-camera fs-1" aria-hidden="true"></i><br>
+                                        Media & Live Recordings
+                                    </a>
+                                    <a href="" class="col btn btn-primary m-2 py-3 col-5">
+                                        <i class="fa fa-cogs fs-1" aria-hidden="true"></i><br>
+                                        Settings
+                                    </a>
+                                    <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-5">
+                                        <i class="fa fa-sign-out fs-1" aria-hidden="true"></i><br>
+                                        Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            </section>
 
 
             </main>

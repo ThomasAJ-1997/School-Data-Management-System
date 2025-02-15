@@ -58,13 +58,13 @@ if (
                         <a class="btn btn-dark" href="teacher-add.php">Add New Teacher</a>
 
                         <?php if (isset($_GET['error'])) { ?>
-                            <div class="alert alert-danger mt-2" role="alert">
+                            <div class="alert alert-danger mt-2 n-table" role="alert">
                                 <?= $_GET['error'] ?>
                             </div>
                         <?php } ?>
 
                         <?php if (isset($_GET['success'])) { ?>
-                            <div class="alert alert-success mt-2" role="alert">
+                            <div class="alert alert-success mt- n-table" role="alert">
                                 <?= $_GET['success'] ?>
                             </div>
                         <?php } ?>
