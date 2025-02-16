@@ -96,7 +96,9 @@ if (
                             <div class="mt-3 hidden-element">
                                 <input type="text"
                                     value="<?= $student['student_id'] ?>"
-                                    name="student_id">
+                                    name="student_id"
+                                    hidden>
+
                             </div>
 
                             <label class="mt-4" for="gradeInput">Grade</label>
@@ -126,7 +128,7 @@ if (
                     </form>
 
 
-                    <form method="POST" class="shadow p-4 mt-4 mb-2" action="req/teacher-change.php" id="change_password">
+                    <form method="POST" class="shadow p-4 mt-4 mb-2" action="req/student-change.php" id="change_password">
                         <h3 class="mt-1">Change Password</h3>
                         <?php if (isset($_GET['perror'])) { ?>
                             <div class="alert alert-danger" role="alert">
@@ -151,8 +153,8 @@ if (
 
                             <div class="mt-3 hidden-element">
                                 <input type="text"
-                                    value="<?= $teacher['teacher_id'] ?>"
-                                    name="teacher_id"
+                                    value="<?= $student['student_id'] ?>"
+                                    name="student_id"
                                     hidden>
                             </div>
 
@@ -191,7 +193,7 @@ if (
 
                 <script>
                     $(document).ready(function() {
-                        $("#navLinks li:nth-child(2) a").addClass("active");
+                        $("#navLinks li:nth-child(3) a").addClass("active");
                     });
                 </script>
 
