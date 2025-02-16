@@ -46,15 +46,14 @@ if (
                 header("Location: ../student-edit.php?error=$em&$data");
                 exit;
             } else {
-                echo 'working';
-                // $sql = "UPDATE students SET
-                //         username = ?, fname=?, lname=?, grade=?
-                //         WHERE student_id=?";
-                // $stmt = $conn->prepare($sql);
-                // $stmt->execute([$uname,$fname, $lname, $grade, $student_id]);
-                // $sm = "successfully updated!";
-                // header("Location: ../student-edit.php?success=$sm&$data");
-                // exit;
+                $sql = "UPDATE student SET
+                username = ?, fname=?, lname=?, grade_type=?
+                WHERE student_id=?";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([$uname, $fname, $lname, $grade, $student_id]);
+                $sm = "successfully updated!";
+                header("Location: ../student-edit.php?success=$sm&$data");
+                exit;
             }
         } else {
             $em = "An error occurred";

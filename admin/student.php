@@ -94,7 +94,7 @@ if (
                                             <td><?= $student['fname'] ?></td>
                                             <td><?= $student['lname'] ?></td>
                                             <td><?= $student['username'] ?></td>
-                                            <td><?= $student['grade_code'] ?></td>
+                                            <td><?= $student['grade_type'] ?></td>
                                             <td>
                                                 <a href="student-edit.php?student_id=<?= $student['student_id'] ?>"
                                                     class="btn btn-warning">Edit</a>

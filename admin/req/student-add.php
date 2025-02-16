@@ -54,7 +54,7 @@ if (
                 $pass = password_hash($pass, PASSWORD_DEFAULT);
 
                 $sql  = "INSERT INTO
-                 student(username, password, fname, lname, grade_code)
+                 student(username, password, fname, lname, grade_type)
                  VALUES(?,?,?,?,?)";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([$uname, $pass, $fname, $lname, $grade]);

@@ -101,8 +101,8 @@ if (
                                     <div class="col">
                                         <input type="radio"
                                             name="grade"
-                                            value="<?= $grade['grade_id'] ?>">
-                                        <?= $grade['grade_code'] ?><?= $grade['grade_type'] ?>
+                                            value="<?= $grade['grade_type'] ?>">
+                                        <?= $grade['grade_type'] ?>
                                     </div>
                                 <?php endforeach ?>
                             </div>
