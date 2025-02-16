@@ -56,6 +56,19 @@ if (
                     <div class="move-left container mt-5">
                         <a class="btn btn-dark" href="student-add.php">Add New Student</a>
 
+
+                        <?php if (isset($_GET['error'])) { ?>
+                            <div class="alert alert-danger mt-2 n-table" role="alert">
+                                <?= $_GET['error'] ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if (isset($_GET['success'])) { ?>
+                            <div class="alert alert-success mt-2 n-table" role="alert">
+                                <?= $_GET['success'] ?>
+                            </div>
+                        <?php } ?>
+
                         <div class="table-responsive">
 
                             <table class="table table-bordered mt-3 n-table">

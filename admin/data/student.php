@@ -58,3 +58,18 @@ function unameIsUnique($uname, $conn, $student_id = 0)
         }
     }
 }
+
+
+function deleteStudent($id, $conn)
+{
+    $sql = 'DELETE FROM student WHERE student_id=?';
+
+    $stmt = $conn->prepare($sql);
+    $re = $stmt->execute([$id]);
+
+    if ($re) {
+        return 1;
+    } else {
+        return 0;
+    }
+}

@@ -64,7 +64,7 @@ if (
                         <?php } ?>
 
                         <?php if (isset($_GET['success'])) { ?>
-                            <div class="alert alert-success mt- n-table" role="alert">
+                            <div class="alert alert-success mt-2 n-table" role="alert">
                                 <?= $_GET['success'] ?>
                             </div>
                         <?php } ?>
