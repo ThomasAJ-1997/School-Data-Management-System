@@ -10,10 +10,11 @@ if (
 
             $search_key = $_POST['searchKey'];
             include "../db_connection.php";
-            include "data/teacher.php";
-            include "data/subject.php";
+            include "data/student.php";
             include "data/grade.php";
-            $teachers = searchTeacher($search_key, $conn);
+            $students = searchStudent($search_key, $conn);
+
+
 
 ?>
 
@@ -23,7 +24,7 @@ if (
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Admin - Search Teachers</title>
+                <title>Admin - Search Students</title>
                 <!-- BOOTSTRAP -->
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
                 <!-- SASS/SCSS -->
@@ -46,14 +47,15 @@ if (
                 <main class="main-wrap">
                     <?php include "includes/navbar.php";
 
-                    if ($teachers != 0) {
+                    if ($students != 0) {
 
                     ?>
 
                         <div class="move-left container mt-5">
-                            <a class="btn btn-dark" href="teacher-add.php">Add New Teacher</a>
+                            <a class="btn btn-dark" href="student-add.php">Add New Student</a>
 
-                            <form action="teacher-search.php" class="n-table">
+
+                            <form action="student-search.php" class="n-table">
                                 <div class="input-group mb-3 mt-3 ">
                                     <input type="text"
                                         class="form-control"
@@ -69,13 +71,13 @@ if (
 
 
                             <?php if (isset($_GET['error'])) { ?>
-                                <div class="alert alert-danger alert-box ml-6 mt-2 n-table" role="alert">
+                                <div class="alert alert-danger mt-2 n-table" role="alert">
                                     <?= $_GET['error'] ?>
                                 </div>
                             <?php } ?>
 
                             <?php if (isset($_GET['success'])) { ?>
-                                <div class="alert alert-success alert-box mt-2 n-table" role="alert">
+                                <div class="alert alert-success mt-2 n-table" role="alert">
                                     <?= $_GET['success'] ?>
                                 </div>
                             <?php } ?>
@@ -90,55 +92,26 @@ if (
                                             <th scope="col">First Name</th>
                                             <th scope="col">Last Name</th>
                                             <th scope="col">Username</th>
-                                            <th scope="col">Subject</th>
                                             <th scope="col">Grade</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php $i = 0;
-                                        foreach ($teachers as $teacher) {
+                                        foreach ($students as $student) {
                                             $i++;
                                         ?>
                                             <tr>
                                                 <th scope="row"><?= $i ?></th>
-                                                <td><?= $teacher['teacher_id'] ?></td>
-                                                <td><?= $teacher['fname'] ?></td>
-                                                <td><?= $teacher['lname'] ?></td>
-                                                <td><?= $teacher['username'] ?></td>
+                                                <td><?= $student['student_id'] ?></td>
+                                                <td><?= $student['fname'] ?></td>
+                                                <td><?= $student['lname'] ?></td>
+                                                <td><?= $student['username'] ?></td>
+                                                <td><?= $student['grade_type'] ?></td>
                                                 <td>
-                                                    <?php
-                                                    $s = '';
-                                                    $subjects = str_split(trim($teacher['subject_type']));
-
-                                                    foreach ($subjects as $subject) {
-                                                        $s_temp = getSubjectById($subject, $conn);
-
-                                                        if ($s_temp != 0) {
-                                                            $s .= $s_temp['subject_code'] . ', ';
-                                                        }
-                                                    }
-
-                                                    echo ' ' . $s;
-                                                    ?>
-                                                </td>
-                                                <td>
-                                                    <?php
-                                                    $g = '';
-                                                    $grades = str_split(trim($teacher['grade_type']));
-                                                    foreach ($grades as $grade) {
-                                                        $g_temp = getGradeById($grade, $conn);
-                                                        if ($g_temp != 0)
-                                                            $g .= $g_temp['grade_code'] . '-' .
-                                                                $g_temp['grade_type'] . ', ';
-                                                    }
-                                                    echo ' ' . $g;
-                                                    ?>
-                                                </td>
-                                                <td>
-                                                    <a href="teacher-edit.php?teacher_id=<?= $teacher['teacher_id'] ?>"
+                                                    <a href="student-edit.php?student_id=<?= $student['student_id'] ?>"
                                                         class="btn btn-warning">Edit</a>
-                                                    <a href="teacher-delete.php?teacher_id=<?= $teacher['teacher_id'] ?>"
+                                                    <a href="student-delete.php?student_id=<?= $student['student_id'] ?>"
                                                         class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
@@ -151,9 +124,7 @@ if (
                                         Empty: No Teacher Records to Show.
                                     </div>
                                 </div>
-                            <?php }
-
-                            ?>
+                            <?php } ?>
 
                             </div>
                         </div>
@@ -166,7 +137,7 @@ if (
 
                         <script>
                             $(document).ready(function() {
-                                $("#navLinks li:nth-child(2) a").addClass("active");
+                                $("#navLinks li:nth-child(3) a").addClass("active");
                             });
                         </script>
 
@@ -177,7 +148,7 @@ if (
 
 <?php
         } else {
-            header("Location: teacher.php");
+            header("Location: student.php");
             exit;
         }
     } else {

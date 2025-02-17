@@ -13,11 +13,6 @@ if (
         $students = allStudents($conn);
 
 
-        // print_r($subjects);
-        // echo "<pre>";
-        // print_r($subjects);
-        // echo "</pre>";
-
 ?>
 
         <!DOCTYPE html>
@@ -55,6 +50,20 @@ if (
 
                     <div class="move-left container mt-5">
                         <a class="btn btn-dark" href="student-add.php">Add New Student</a>
+
+
+                        <form action="student-search.php" class="n-table" method="POST">
+                            <div class="input-group mb-3 mt-3 ">
+                                <input type="text"
+                                    class="form-control"
+                                    name="searchKey"
+                                    placeholder="Search...">
+                                <button class="btn btn-primary"
+                                    id="gBtn">
+                                    <i class="ri-search-2-line"></i></button>
+                            </div>
+                        </form>
+
 
 
                         <?php if (isset($_GET['error'])) { ?>

@@ -73,3 +73,19 @@ function deleteStudent($id, $conn)
         return 0;
     }
 }
+
+function searchStudent($key, $conn)
+{
+    $key = "%{$key}%";
+    $sql = "SELECT * FROM student WHERE student_id LIKE ? OR fname LIKE ? OR lname LIKE ? OR username LIKE ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$key, $key, $key, $key,]);
+
+    if ($stmt->rowCount() == 1) {
+        $students = $stmt->fetchAll();
+        return $students;
+    } else {
+        return 0;
+    }
+}
