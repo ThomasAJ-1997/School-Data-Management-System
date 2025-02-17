@@ -69,3 +69,19 @@ function deleteTeacher($id, $conn)
         return 0;
     }
 }
+
+function searchTeacher($key, $conn)
+{
+    $key = "%{$key}%";
+    $sql = "SELECT * FROM teacher WHERE teacher_id LIKE ? OR fname LIKE ? OR lname LIKE ? OR username LIKE ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$key, $key, $key, $key,]);
+
+    if ($stmt->rowCount() == 1) {
+        $teachers = $stmt->fetchAll();
+        return $teachers;
+    } else {
+        return 0;
+    }
+}

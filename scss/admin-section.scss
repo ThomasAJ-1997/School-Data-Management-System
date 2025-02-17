@@ -7,7 +7,16 @@
 }
 
 .alert-box {
-  height: 8vh;
+  height: 7.5vh;
   width: 100%;
   margin-left: 5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-container {
+  width: 75%;
+  margin-left: 8rem;
 }
