@@ -10,8 +10,10 @@ if (
         include "../db_connection.php";
         include "data/subject.php";
         include "data/grade.php";
+        include "data/section.php";
         $subjects = allSubjects($conn);
         $grades = allGrades($conn);
+        $sections = allSections($conn);
 
         $fname = '';
         $lname = '';
@@ -97,8 +99,51 @@ if (
                                 <button class="btn btn-secondary mt-2" id="gBtn">Random</button>
                             </div>
 
+                            <label class="mt-4" for="userInput">Address</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value=""
+                                name="address">
 
-                            <label class="mt-4" for="subjectInput">Subject</label>
+                            <label class="mt-4" for="userInput">Employee Number</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value=""
+                                name="employee_number">
+
+
+                            <label class="mt-4" for="userInput">Phone Number</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value=""
+                                name="phone_number">
+
+
+
+                            <label class="mt-4" for="userInput">Qualification</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value=""
+                                name="qualification">
+
+
+                            <label class="mt-4" for="userInput">Email Address</label>
+                            <input type="email" class="form-control mt-2" id="userInput"
+                                value=""
+                                name="email_address">
+
+                            <label class="mt-4" for="userInput">Gender</label>
+                            <select name="gender" id="userInput" class="form-control mt-2">
+                                <option name="gender" value=""></option>
+                                <option name="gender" value="Male">Male</option>
+                                <option name="gender" value="Female">Female</option>
+                                <option name="gender" value="Other">Other</option>
+                            </select>
+
+                            <label class="mt-4" for="userInput">Date of Birth</label>
+                            <input type="date" class="form-control mt-2" id="userInput"
+                                value=""
+                                name="date_of_birth">
+
+
+
+                            <label class=" mt-4" for="subjectInput">Subject</label>
                             <div class="row row-cols-5">
                                 <?php foreach ($subjects as $subject): ?>
                                     <div class="col">
@@ -122,6 +167,19 @@ if (
                                     </div>
                                 <?php endforeach ?>
                             </div>
+
+                            <label class=" mt-4" for="sectionInput">Section</label>
+                            <div class="row row-cols-5">
+                                <?php foreach ($sections as $section): ?>
+                                    <div class="col">
+                                        <input type="checkbox" id="sectionInput"
+                                            name="sections[]"
+                                            value="<?= $section['section_id'] ?>">
+                                        <?= $section['section_name'] ?>
+                                    </div>
+                                <?php endforeach ?>
+                            </div>
+
 
 
                         </div>

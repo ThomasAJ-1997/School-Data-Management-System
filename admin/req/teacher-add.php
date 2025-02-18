@@ -13,8 +13,16 @@ if (
             isset($_POST['lname']) &&
             isset($_POST['username']) &&
             isset($_POST['pass']) &&
+            isset($_POST['address']) &&
+            isset($_POST['employee_number']) &&
+            isset($_POST['phone_number']) &&
+            isset($_POST['qualification']) &&
+            isset($_POST['email_address']) &&
+            isset($_POST['gender']) &&
+            isset($_POST['date_of_birth']) &&
             isset($_POST['subjects']) &&
-            isset($_POST['grades'])
+            isset($_POST['grades']) &&
+            isset($_POST['sections'])
         ) {
 
             include '../../DB_connection.php';
@@ -25,6 +33,14 @@ if (
             $uname = $_POST['username'];
             $pass = $_POST['pass'];
 
+            $address = $_POST['address'];
+            $employee_number = $_POST['employee_number'];
+            $phone_number = $_POST['phone_number'];
+            $qualification = $_POST['qualification'];
+            $email_address = $_POST['email_address'];
+            $gender = $_POST['gender'];
+            $date_of_birth = $_POST['date_of_birth'];
+
             $subjects = "";
             foreach ($_POST['subjects'] as $subject) {
                 $subjects .= $subject;
@@ -33,6 +49,11 @@ if (
             $grades = "";
             foreach ($_POST['grades'] as $grade) {
                 $grades .= $grade;
+            }
+
+            $sections = "";
+            foreach ($_POST['sections'] as $section) {
+                $sections .= $section;
             }
 
             $data = 'uname=' . $uname . '&fname=' . $fname . '&lname=' . $lname;
@@ -57,14 +78,41 @@ if (
                 $em  = "Password is required";
                 header("Location: ../teacher-add.php?error=$em&$data");
                 exit;
+            } else if (empty($address)) {
+                $em  = "Address is required";
+                header("Location: ../teacher-add.php?error=$em&$data");
+                exit;
+            } else if (empty($employee_number)) {
+                $em  = "Employee number is required";
+                header("Location: ../teacher-add.php?error=$em&$data");
+                exit;
+            } else if (empty($phone_number)) {
+                $em  = "Phone number is required";
+                header("Location: ../teacher-add.php?error=$em&$data");
+                exit;
+            } else if (empty($qualification)) {
+                $em  = "Qualification is required";
+                header("Location: ../teacher-add.php?error=$em&$data");
+                exit;
+            } else if (empty($gender)) {
+                $em  = "Gender field is required";
+                header("Location: ../teacher-add.php?error=$em&$data");
+                exit;
+            } else if (empty($email_address)) {
+                $em  = "Email address is required";
+                header("Location: ../teacher-add.php?error=$em&$data");
+                exit;
+            } else if (empty($date_of_birth)) {
+                $em  = "Date of birth is required";
+                header("Location: ../teacher-add.php?error=$em&$data");
+                exit;
             } else {
-                // hashing the password
                 $pass = password_hash($pass, PASSWORD_DEFAULT);
 
-                $query = "INSERT INTO teacher (username, password, fname, lname, subject_type, grade_type) VALUES(?,?,?,?,?,?);";
+                $query = "INSERT INTO teacher (username, password, fname, lname, subject_type, grade_type, address, section, employee_number, date_of_birth, phone_number, qualification, gender, email_address) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
                 $stmt = $conn->prepare($query);
-                $stmt->execute([$uname, $pass, $fname, $lname, $subjects, $grades]);
+                $stmt->execute([$uname, $pass, $fname, $lname, $subjects, $grades, $sections, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address]);
 
                 $sm = "New teacher registered successfully";
                 header("Location: ../teacher-add.php?success=$sm");
