@@ -56,7 +56,8 @@ if (
                 $sections .= $section;
             }
 
-            $data = 'uname=' . $uname . '&fname=' . $fname . '&lname=' . $lname;
+            $data = 'uname=' . $uname . '&fname=' . $fname . '&lname=' . $lname .
+                '&address=' . $address . '&en=' . $employee_number . '&pn=' . $phone_number . '&qf=' . $qualification . '&email=' . $email_address . '&gender=' . $gender;
 
             if (empty($fname)) {
                 $em  = "First name is required";

@@ -13,12 +13,6 @@ if (
 
         $teachers = allTeachers($conn);
 
-
-        // print_r($subjects);
-        // echo "<pre>";
-        // print_r($subjects);
-        // echo "</pre>";
-
 ?>
 
         <!DOCTYPE html>
@@ -106,7 +100,8 @@ if (
                                         <tr>
                                             <th scope="row"><?= $i ?></th>
                                             <td><?= $teacher['teacher_id'] ?></td>
-                                            <td><?= $teacher['fname'] ?></td>
+                                            <td><a href="teacher-view.php?teacher_id=<?= $teacher['teacher_id'] ?>
+                                            "><?= $teacher['fname'] ?></a></td>
                                             <td><?= $teacher['lname'] ?></td>
                                             <td><?= $teacher['username'] ?></td>
                                             <td>

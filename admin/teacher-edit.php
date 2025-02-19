@@ -11,9 +11,12 @@ if (
         include "../db_connection.php";
         include "data/subject.php";
         include "data/grade.php";
+        include "data/section.php";
         include "data/teacher.php";
         $subjects = allSubjects($conn);
         $grades = allGrades($conn);
+        $sections = allSections($conn);
+
         $teacher_id = $_GET['teacher_id'];
         $teacher = getTeachertById($teacher_id, $conn);
 
@@ -93,6 +96,49 @@ if (
                                 value="<?= $teacher['username'] ?>"
                                 name="username">
 
+                            <label class="mt-4" for="userInput">Address</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value="<?= $teacher['address'] ?>"
+                                name="address">
+
+
+                            <label class="mt-4" for="userInput">Employee Number</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value="<?= $teacher['employee_number'] ?>"
+                                name="employee_number">
+
+                            <label class="mt-4" for="userInput">Date of Birth</label>
+                            <input type="date" class="form-control mt-2" id="userInput"
+                                value="<?= $teacher['date_of_birth'] ?>"
+                                name="date_of_birth">
+
+
+
+                            <label class="mt-4" for="userInput">Phone Number</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value="<?= $teacher['phone_number'] ?>"
+                                name="phone_number">
+
+
+                            <label class="mt-4" for="userInput">Qualification</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value="<?= $teacher['qualification'] ?>"
+                                name="qualification">
+
+
+                            <label class="mt-4" for="userInput">Gender</label>
+                            <select name="gender" value="<?= $gender ?>" id="userInput" class="form-control mt-2">
+                                <option name="gender" value=""></option>
+                                <option name="gender" value="Male">Male</option>
+                                <option name="gender" value="Female">Female</option>
+                                <option name="gender" value="Other">Other</option>
+                            </select>
+
+                            <label class="mt-4" for="userInput">Email Address</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value="<?= $teacher['email_address'] ?>"
+                                name="email_address">
+
                             <div class="mt-3 hidden-element">
                                 <input type="text"
                                     value="<?= $teacher['teacher_id'] ?>"
@@ -145,6 +191,29 @@ if (
                                     </div>
                                 <?php } ?>
                             </div>
+
+                            <label class="mt-4" for="gradeInput">Section</label>
+                            <div class="row row-cols-5">
+                                <?php
+                                $section_ids = str_split(trim($teacher['section']));
+                                foreach ($sections as $section) {
+                                    $checked = 0;
+                                    foreach ($section_ids as $section_id) {
+                                        if ($section_id == $section['section_id']) {
+                                            $checked = 1;
+                                        }
+                                    }
+                                ?>
+                                    <div class="col">
+                                        <input type="checkbox"
+                                            name="sections[]"
+                                            <?php if ($checked) echo "checked" ?>
+                                            value="<?= $section['section_id'] ?>">
+                                        <?= $section['section_name'] ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+
 
 
                         </div>

@@ -18,10 +18,22 @@ if (
         $fname = '';
         $lname = '';
         $uname = '';
+        $address = '';
+        $en = '';
+        $pn = '';
+        $qf = '';
+        $email = '';
+        $gender = '';
 
         if (isset($_GET['fname'])) $fname = $_GET['fname'];
-        if (isset($_GET['lname'])) $fname = $_GET['lname'];
-        if (isset($_GET['uname'])) $fname = $_GET['uname'];
+        if (isset($_GET['lname'])) $lname = $_GET['lname'];
+        if (isset($_GET['uname'])) $uname = $_GET['uname'];
+        if (isset($_GET['address'])) $address = $_GET['address'];
+        if (isset($_GET['en'])) $en = $_GET['en'];
+        if (isset($_GET['pn'])) $pn = $_GET['pn'];
+        if (isset($_GET['qf'])) $qf = $_GET['qf'];
+        if (isset($_GET['email'])) $email = $_GET['email'];
+        if (isset($_GET['gender'])) $gender = $_GET['gender'];
 
 ?>
 
@@ -101,35 +113,35 @@ if (
 
                             <label class="mt-4" for="userInput">Address</label>
                             <input type="text" class="form-control mt-2" id="userInput"
-                                value=""
+                                value="<?= $address ?>"
                                 name="address">
 
                             <label class="mt-4" for="userInput">Employee Number</label>
                             <input type="text" class="form-control mt-2" id="userInput"
-                                value=""
+                                value="<?= $en ?>"
                                 name="employee_number">
 
 
                             <label class="mt-4" for="userInput">Phone Number</label>
                             <input type="text" class="form-control mt-2" id="userInput"
-                                value=""
+                                value="<?= $pn ?>"
                                 name="phone_number">
 
 
 
                             <label class="mt-4" for="userInput">Qualification</label>
                             <input type="text" class="form-control mt-2" id="userInput"
-                                value=""
+                                value="<?= $qf ?>"
                                 name="qualification">
 
 
                             <label class="mt-4" for="userInput">Email Address</label>
                             <input type="email" class="form-control mt-2" id="userInput"
-                                value=""
+                                value="<?= $email ?>"
                                 name="email_address">
 
                             <label class="mt-4" for="userInput">Gender</label>
-                            <select name="gender" id="userInput" class="form-control mt-2">
+                            <select name="gender" value="<?= $gender ?>" id="userInput" class="form-control mt-2">
                                 <option name="gender" value=""></option>
                                 <option name="gender" value="Male">Male</option>
                                 <option name="gender" value="Female">Female</option>
@@ -140,8 +152,6 @@ if (
                             <input type="date" class="form-control mt-2" id="userInput"
                                 value=""
                                 name="date_of_birth">
-
-
 
                             <label class=" mt-4" for="subjectInput">Subject</label>
                             <div class="row row-cols-5">

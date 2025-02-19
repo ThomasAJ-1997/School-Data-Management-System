@@ -13,6 +13,14 @@ if (
             isset($_POST['lname']) &&
             isset($_POST['username']) &&
             isset($_POST['teacher_id']) &&
+            isset($_POST['address']) &&
+            isset($_POST['employee_number']) &&
+            isset($_POST['phone_number']) &&
+            isset($_POST['qualification']) &&
+            isset($_POST['email_address']) &&
+            isset($_POST['gender']) &&
+            isset($_POST['date_of_birth']) &&
+            isset($_POST['sections']) &&
             isset($_POST['subjects']) &&
             isset($_POST['grades'])
         ) {
@@ -23,6 +31,14 @@ if (
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
             $uname = $_POST['username'];
+
+            $address = $_POST['address'];
+            $employee_number = $_POST['employee_number'];
+            $phone_number = $_POST['phone_number'];
+            $qualification = $_POST['qualification'];
+            $email_address = $_POST['email_address'];
+            $gender = $_POST['gender'];
+            $date_of_birth =  $_POST['date_of_birth'];
             $teacher_id = $_POST['teacher_id'];
 
             $subjects = "";
@@ -33,6 +49,11 @@ if (
             $grades = "";
             foreach ($_POST['grades'] as $grade) {
                 $grades .= $grade;
+            }
+
+            $sections = "";
+            foreach ($_POST['sections'] as $section) {
+                $sections .= $section;
             }
 
             $data = 'teacher_id=' . $teacher_id;
@@ -53,12 +74,40 @@ if (
                 $em  = "Username is taken! try another";
                 header("Location: ../teacher-edit.php?error=$em&$data");
                 exit;
+            } else if (empty($address)) {
+                $em  = "Address is required";
+                header("Location: ../teacher-edit.php?error=$em&$data");
+                exit;
+            } else if (empty($employee_number)) {
+                $em  = "Employee number is required";
+                header("Location: ../teacher-edit.php?error=$em&$data");
+                exit;
+            } else if (empty($phone_number)) {
+                $em  = "Phone number is required";
+                header("Location: ../teacher-edit.php?error=$em&$data");
+                exit;
+            } else if (empty($qualification)) {
+                $em  = "Qualification is required";
+                header("Location: ../teacher-edit.php?error=$em&$data");
+                exit;
+            } else if (empty($gender)) {
+                $em  = "Gender field is required";
+                header("Location: ../teacher-edit.php?error=$em&$data");
+                exit;
+            } else if (empty($email_address)) {
+                $em  = "Email address is required";
+                header("Location: ../teacher-edit.php?error=$em&$data");
+                exit;
+            } else if (empty($date_of_birth)) {
+                $em  = "Date of birth is required";
+                header("Location: ../teacher-edit.php?error=$em&$data");
+                exit;
             } else {
-                $sql = "UPDATE teacher SET username=?, fname=?, lname=?, subject_type=?, grade_type=?
+                $sql = "UPDATE teacher SET username=?, fname=?, lname=?, subject_type=?, grade_type=?, address=?, employee_number=?, date_of_birth=?, phone_number=?, qualification=?, gender=?, email_address=?, section=? 
                 WHERE teacher_id=?";
 
                 $stmt = $conn->prepare($sql);
-                $stmt->execute([$uname, $fname, $lname, $subjects, $grades, $teacher_id]);
+                $stmt->execute([$uname, $fname, $lname, $subjects, $grades, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address, $sections,  $teacher_id]);
 
                 $sm = "Sucessfully Updated!";
                 header("Location: ../teacher-edit.php?success=$sm&$data");
