@@ -9,15 +9,27 @@ if (
 
         include "../db_connection.php";
         include "data/grade.php";
+        include "data/section.php";
         $grades = allGrades($conn);
+        $sections = allSections($conn);
 
         $fname = '';
         $lname = '';
         $uname = '';
+        $address = '';
+        $email = '';
+        $pfn = '';
+        $pln = '';
+        $ppn = '';
 
         if (isset($_GET['fname'])) $fname = $_GET['fname'];
-        if (isset($_GET['lname'])) $fname = $_GET['lname'];
-        if (isset($_GET['uname'])) $fname = $_GET['uname'];
+        if (isset($_GET['lname'])) $lname = $_GET['lname'];
+        if (isset($_GET['uname'])) $uname = $_GET['uname'];
+        if (isset($_GET['uname'])) $address = $_GET['address'];
+        if (isset($_GET['uname'])) $email = $_GET['email_address'];
+        if (isset($_GET['uname'])) $pfn = $_GET['parent_fname'];
+        if (isset($_GET['uname'])) $pln = $_GET['parent_lname'];
+        if (isset($_GET['uname'])) $ppn = $_GET['parent_phone_number'];
 
 ?>
 
@@ -88,12 +100,59 @@ if (
                                 value="<?= $uname ?>"
                                 name="username">
 
+
                             <label class="mt-4" for="passInput">Password</label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control mt-2" id="passInput"
                                     name="pass">
                                 <button class="btn btn-secondary mt-2" id="gBtn">Random</button>
                             </div>
+
+                            <label class="mt-4" for="userInput">Address</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value="<?= $address ?>"
+                                name="address">
+
+                            <label class="mt-4" for="userInput">Email Address</label>
+                            <input type="email" class="form-control mt-2" id="userInput"
+                                value="<?= $email ?>"
+                                name="email_address">
+
+                            <label class="mt-4" for="userInput">Date Of Birth</label>
+                            <input type="date" class="form-control mt-2" id="userInput"
+                                name="date_of_birth">
+
+
+                            <label class="mt-4" for="userInput">Gender</label>
+                            <select name="gender" id="userInput" class="form-control mt-2">
+                                <option name="gender" value=""></option>
+                                <option name="gender" value="Male">Male</option>
+                                <option name="gender" value="Female">Female</option>
+                                <option name="gender" value="Other">Other</option>
+                            </select>
+                            <br>
+                            <hr>
+
+                            <label class="mt-4" for="userInput">Parent First Name</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value="<?= $pfn ?>"
+                                name="parent_fname">
+
+                            <label class="mt-4" for="userInput">Parent Last Name</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value="<?= $pln ?>"
+                                name="parent_lname">
+
+
+                            <label class="mt-4" for="userInput">Parent Phone Number</label>
+                            <input type="text" class="form-control mt-2" id="userInput"
+                                value="<?= $ppn ?>"
+                                name="parent_phone_number">
+
+                            <br>
+                            <hr>
+
+
 
                             <label class="mt-4" for="gradeInput">Grade</label>
                             <div class="row row-cols-5">
@@ -102,7 +161,19 @@ if (
                                         <input type="radio"
                                             name="grade"
                                             value="<?= $grade['grade_type'] ?>">
-                                        <?= $grade['grade_type'] ?>
+                                        <?= $grade['grade_type'] ?>-<?= $grade['grade_code'] ?>
+                                    </div>
+                                <?php endforeach ?>
+                            </div>
+
+                            <label class=" mt-4" for="sectionInput">Section</label>
+                            <div class="row row-cols-5">
+                                <?php foreach ($sections as $section): ?>
+                                    <div class="col">
+                                        <input type="checkbox" id="sectionInput"
+                                            name="sections[]"
+                                            value="<?= $section['section_id'] ?>">
+                                        <?= $section['section_name'] ?>
                                     </div>
                                 <?php endforeach ?>
                             </div>
