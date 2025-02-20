@@ -52,7 +52,7 @@ if (
                         <a class="btn btn-dark" href="student-add.php">Add New Student</a>
 
 
-                        <form action="student-search.php" class="n-table" method="POST">
+                        <form action="student-search.php" class="n-table" method="GET">
                             <div class="input-group mb-3 mt-3 ">
                                 <input type="text"
                                     class="form-control"

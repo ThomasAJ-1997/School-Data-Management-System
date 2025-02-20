@@ -66,7 +66,7 @@
 
                 <div class="row1">
                     <div class="col">
-                        <input id="login-button" class="contact-button" type="submit" value="Send">
+                        <input id="login-button" class="contact-button" type="submit" value="Login">
                         <a class="home-button" href="index.php">Home</a>
                     </div>
                 </div>

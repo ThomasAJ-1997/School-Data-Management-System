@@ -76,7 +76,7 @@ function deleteStudent($id, $conn)
 
 function searchStudent($key, $conn)
 {
-    $key = "%{$key}%";
+    $key = preg_replace('/(?<!\\\)([%_])/', '\\\$1', $key);
     $sql = "SELECT * FROM student WHERE student_id LIKE ? OR fname LIKE ? OR lname LIKE ? OR username LIKE ?";
 
     $stmt = $conn->prepare($sql);

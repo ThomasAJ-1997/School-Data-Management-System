@@ -56,10 +56,10 @@ if (
                     ?>
 
                         <div class="move-left container mt-5">
-                            <div class="card" style="width: 18rem;">
-                                <img src="../imgs/icon.png" class="card-img-top" alt="..." style="width: 10rem;">
+                            <div class="card" style="width: 28rem;">
+                                <img src="../imgs/<?= $teacher['gender'] ?>.png" class="card-img-top" alt="..." style="width: 20rem; margin-left: 4rem; margin-top: 2rem;">
                                 <div class="card-body">
-                                    <h5 class="card-title">@<?php echo $teacher['username']; ?></h5>
+                                    <h5 class="card-title" style="text-align: center;">@<?php echo $teacher['username']; ?></h5>
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">

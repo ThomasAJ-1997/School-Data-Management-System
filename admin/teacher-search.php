@@ -6,9 +6,9 @@ if (
 ) {
 
     if ($_SESSION['role'] == 'Admin') {
-        if (isset($_POST['searchKey'])) {
+        if (isset($_GET['searchKey'])) {
 
-            $search_key = $_POST['searchKey'];
+            $search_key = $_GET['searchKey'];
             include "../db_connection.php";
             include "data/teacher.php";
             include "data/subject.php";
@@ -53,7 +53,7 @@ if (
                         <div class="move-left container mt-5">
                             <a class="btn btn-dark" href="teacher-add.php">Add New Teacher</a>
 
-                            <form action="teacher-search.php" class="n-table">
+                            <form action="teacher-search.php" class="n-table" method="GET">
                                 <div class="input-group mb-3 mt-3 ">
                                     <input type="text"
                                         class="form-control"
@@ -103,7 +103,8 @@ if (
                                             <tr>
                                                 <th scope="row"><?= $i ?></th>
                                                 <td><?= $teacher['teacher_id'] ?></td>
-                                                <td><?= $teacher['fname'] ?></td>
+                                                <td><a href="teacher-view.php?teacher_id=<?= $teacher['teacher_id'] ?>
+                                                "><?= $teacher['fname'] ?></a></td>
                                                 <td><?= $teacher['lname'] ?></td>
                                                 <td><?= $teacher['username'] ?></td>
                                                 <td>

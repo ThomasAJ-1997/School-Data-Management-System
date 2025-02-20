@@ -6,9 +6,9 @@ if (
 ) {
 
     if ($_SESSION['role'] == 'Admin') {
-        if (isset($_POST['searchKey'])) {
+        if (isset($_GET['searchKey'])) {
 
-            $search_key = $_POST['searchKey'];
+            $search_key = $_GET['searchKey'];
             include "../db_connection.php";
             include "data/student.php";
             include "data/grade.php";
@@ -55,7 +55,7 @@ if (
                             <a class="btn btn-dark" href="student-add.php">Add New Student</a>
 
 
-                            <form action="student-search.php" class="n-table">
+                            <form action="student-search.php" class="n-table" method="GET">
                                 <div class="input-group mb-3 mt-3 ">
                                     <input type="text"
                                         class="form-control"

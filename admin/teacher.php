@@ -51,7 +51,7 @@ if (
                     <div class="move-left container mt-5">
                         <a class="btn btn-dark" href="teacher-add.php">Add New Teacher</a>
 
-                        <form action="teacher-search.php" class="n-table" method="POST">
+                        <form action="teacher-search.php" class="n-table" method="GET">
                             <div class="input-group mb-3 mt-3">
                                 <input type="text"
                                     class="form-control"
