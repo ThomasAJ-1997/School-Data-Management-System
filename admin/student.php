@@ -100,7 +100,8 @@ if (
                                         <tr>
                                             <th scope="row"><?= $i ?></th>
                                             <td><?= $student['student_id'] ?></td>
-                                            <td><?= $student['fname'] ?></td>
+                                            <td><a href="student-view.php?student_id=<?= $student['student_id'] ?>"><?= $student['fname'] ?></a>
+                                            </td>
                                             <td><?= $student['lname'] ?></td>
                                             <td><?= $student['username'] ?></td>
                                             <td><?= $student['grade_type'] ?></td>

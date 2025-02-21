@@ -53,6 +53,7 @@ if (
 
                         <div class="move-left container mt-5">
                             <a class="btn btn-dark" href="student-add.php">Add New Student</a>
+                            <a class="btn btn-dark" href="student.php">Go Back</a>
 
 
                             <form action="student-search.php" class="n-table" method="GET">
@@ -104,7 +105,7 @@ if (
                                             <tr>
                                                 <th scope="row"><?= $i ?></th>
                                                 <td><?= $student['student_id'] ?></td>
-                                                <td><?= $student['fname'] ?></td>
+                                                <td><a href="student-view.php?student_id=<?= $student['student_id'] ?>"><?= $student['fname'] ?></a>
                                                 <td><?= $student['lname'] ?></td>
                                                 <td><?= $student['username'] ?></td>
                                                 <td><?= $student['grade_type'] ?></td>
@@ -121,7 +122,7 @@ if (
                             <?php } else { ?>
                                 <div class="search-container">
                                     <div class="alert-box alert alert-info m-5" role="alert">
-                                        Empty: No Teacher Records to Show.
+                                        Empty: No Student Records to Show.
                                     </div>
                                 </div>
                             <?php } ?>
