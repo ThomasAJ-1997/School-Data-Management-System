@@ -12,8 +12,12 @@ if (
         include "data/subject.php";
         include "data/grade.php";
         include "data/student.php";
+        include "data/section.php";
+
         $subjects = allSubjects($conn);
         $grades = allGrades($conn);
+        $sections = allSections($conn);
+
         $student_id = $_GET['student_id'];
         $student = getStudentById($student_id, $conn);
 
@@ -98,8 +102,54 @@ if (
                                     value="<?= $student['student_id'] ?>"
                                     name="student_id"
                                     hidden>
-
                             </div>
+
+                            <label class="form-label mt-2">Address</label>
+                            <input type="text"
+                                class="form-control"
+                                value="<?= $student['address'] ?>"
+                                name="address">
+
+                            <label class="form-label mt-4">Email Address</label>
+                            <input type="email"
+                                class="form-control"
+                                value="<?= $student['email_address'] ?>"
+                                name="email_address">
+
+                            <label class="mt-4" for="userInput">Gender</label>
+                            <select name="gender" value="<?= $gender ?>" id="userInput" class="form-control mt-2">
+                                <option name="gender" value=""></option>
+                                <option name="gender" value="Male">Male</option>
+                                <option name="gender" value="Female">Female</option>
+                                <option name="gender" value="Other">Other</option>
+                            </select>
+
+
+                            <label class="form-label mt-4">Date of Birth</label>
+                            <input type="date"
+                                class="form-control"
+                                value="<?= $student['date_of_birth'] ?>"
+                                name="date_of_birth">
+
+                            <label class="form-label mt-4">Parent First Name</label>
+                            <input type="text"
+                                class="form-control"
+                                value="<?= $student['parent_fname'] ?>"
+                                name="parent_fname">
+
+                            <label class="form-label mt-4">Parent Last Name</label>
+                            <input type="text"
+                                class="form-control"
+                                value="<?= $student['parent_lname'] ?>"
+                                name="parent_lname">
+
+                            <label class="form-label mt-4">Parent Phone Number</label>
+                            <input type="text"
+                                class="form-control"
+                                value="<?= $student['parent_phone_number'] ?>"
+                                name="parent_phone_number">
+                            <br>
+                            <hr>
 
                             <label class="mt-4" for="gradeInput">Grade</label>
                             <div class="row row-cols-5">
@@ -119,10 +169,24 @@ if (
                                         <?= $grade['grade_code'] ?><?= $grade['grade_type'] ?>
                                     </div>
                                 <?php } ?>
+                            </div><br>
+
+                            <label class=" mt-4" for="sectionInput">Section</label>
+                            <div class="row row-cols-5">
+                                <?php foreach ($sections as $section): ?>
+                                    <div class="col">
+                                        <input type="radio" id="sectionInput"
+                                            name="section"
+                                            value="<?= $section['section_id'] ?>">
+                                        <?= $section['section_name'] ?>
+                                    </div>
+                                <?php endforeach ?>
                             </div>
 
+                        </div><br>
 
-                        </div>
+
+
 
                         <button type="submit" class="btn btn-primary mt-4">Update Record</button>
                     </form>
