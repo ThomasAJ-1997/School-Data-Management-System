@@ -77,10 +77,10 @@ function deleteStudent($id, $conn)
 function searchStudent($key, $conn)
 {
     $key = preg_replace('/(?<!\\\)([%_])/', '\\\$1', $key);
-    $sql = "SELECT * FROM student WHERE student_id LIKE ? OR fname LIKE ? OR lname LIKE ? OR username LIKE ?";
+    $sql = "SELECT * FROM student WHERE student_id LIKE ? OR fname LIKE ? OR lname LIKE ? OR username LIKE ? OR address LIKE ? OR email_address LIKE ? OR date_of_birth LIKE ? OR parent_fname LIKE ? OR parent_lname LIKE ?";
 
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$key, $key, $key, $key,]);
+    $stmt->execute([$key, $key, $key, $key, $key, $key, $key, $key, $key]);
 
     if ($stmt->rowCount() == 1) {
         $students = $stmt->fetchAll();
