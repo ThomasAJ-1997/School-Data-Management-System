@@ -44,11 +44,9 @@ if (
                 exit;
             }
         } else {
-            echo $_POST['grade_type'];
-            echo $_POST['grade_code'];
-            // $em = "An error occurred";
-            // header("Location: ../grade-add.php?error=$em");
-            // exit;
+            $em = "An error occurred";
+            header("Location: ../grade-add.php?error=$em");
+            exit;
         }
     } else {
         header("Location: ../../logout.php");

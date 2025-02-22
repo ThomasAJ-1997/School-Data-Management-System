@@ -28,7 +28,7 @@
                         </a>
                     </li>
                     <li class="nav-list-item">
-                        <a href="#" class="nav-link">
+                        <a href="section.php" class="nav-link">
                             <i class="ri-school-fill"></i>
                             <span class="link-text">Section</span>
                         </a>

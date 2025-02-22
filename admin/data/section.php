@@ -29,3 +29,18 @@ function getSectionById($section_id, $conn)
         return 0;
     }
 }
+
+
+function deleteSection($id, $conn)
+{
+    $sql = 'DELETE FROM section WHERE section_id=?';
+
+    $stmt = $conn->prepare($sql);
+    $re = $stmt->execute([$id]);
+
+    if ($re) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
