@@ -22,9 +22,15 @@
                         </a>
                     </li>
                     <li class="nav-list-item">
+                        <a href="grade.php" class="nav-link">
+                            <i class="ri-user-add-fill"></i>
+                            <span class="link-text">Grade</span>
+                        </a>
+                    </li>
+                    <li class="nav-list-item">
                         <a href="#" class="nav-link">
-                            <i class="ri-profile-fill"></i>
-                            <span class="link-text">Office </span>
+                            <i class="ri-school-fill"></i>
+                            <span class="link-text">Section</span>
                         </a>
                     </li>
                     <li class="nav-list-item">
@@ -35,8 +41,8 @@
                     </li>
                     <li class="nav-list-item">
                         <a href="#" class="nav-link">
-                            <i class="ri-school-fill"></i>
-                            <span class="link-text">Section</span>
+                            <i class="ri-profile-fill"></i>
+                            <span class="link-text">Office </span>
                         </a>
                     </li>
                     <li class="nav-list-item">

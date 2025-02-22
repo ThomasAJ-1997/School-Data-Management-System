@@ -268,11 +268,11 @@ if (
 
 <?php
     } else {
-        header("Location: teacher.php");
+        header("Location: grade.php");
         exit;
     }
 } else {
-    header("Location: teacher.php");
+    header("Location: grade.php");
     exit;
 }
 
