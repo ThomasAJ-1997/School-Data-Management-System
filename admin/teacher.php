@@ -10,6 +10,8 @@ if (
         include "data/teacher.php";
         include "data/subject.php";
         include "data/grade.php";
+        include "data/class.php";
+        include "data/section.php";
 
         $teachers = allTeachers($conn);
 
@@ -88,7 +90,7 @@ if (
                                         <th scope="col">Last Name</th>
                                         <th scope="col">Username</th>
                                         <th scope="col">Subject</th>
-                                        <th scope="col">Grade</th>
+                                        <th scope="col">Class</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -122,15 +124,17 @@ if (
                                             </td>
                                             <td>
                                                 <?php
-                                                $g = '';
-                                                $grades = str_split(trim($teacher['grade_type']));
-                                                foreach ($grades as $grade) {
-                                                    $g_temp = getGradeById($grade, $conn);
-                                                    if ($g_temp != 0)
-                                                        $g .= $g_temp['grade_code'] . '-' .
-                                                            $g_temp['grade_type'] . ', ';
+                                                $c = '';
+                                                $classes = str_split(trim($teacher['class']));
+                                                foreach ($classes as $class) {
+                                                    $class = getClassById($class, $conn);
+                                                    $c_temp = getGradeById($class['grade'], $conn);
+                                                    $section = getSectionById($class['section'], $conn);
+                                                    if ($c_temp != 0)
+                                                        $c .= $c_temp['grade_code'] .
+                                                            $c_temp['grade_type'] . '-' . $section['section_name'] . '';
                                                 }
-                                                echo ' ' . $g;
+                                                echo ' ' . $c;
                                                 ?>
                                             </td>
                                             <td>

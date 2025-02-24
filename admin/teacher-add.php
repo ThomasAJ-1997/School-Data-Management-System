@@ -11,9 +11,11 @@ if (
         include "data/subject.php";
         include "data/grade.php";
         include "data/section.php";
+        include "data/class.php";
         $subjects = allSubjects($conn);
         $grades = allGrades($conn);
         $sections = allSections($conn);
+        $classes = allClasses($conn);
 
         $fname = '';
         $lname = '';
@@ -163,38 +165,33 @@ if (
                                         <?= $subject['subject_type'] ?>
                                     </div>
                                 <?php endforeach ?>
-                            </div>
+                            </div> <br>
 
-
-                            <label class="mt-4" for="gradeInput">Grade</label>
+                            <label class="form-label">Class</label>
                             <div class="row row-cols-5">
-                                <?php foreach ($grades as $grade): ?>
+                                <?php foreach ($classes as $class): ?>
                                     <div class="col">
                                         <input type="checkbox"
-                                            name="grades[]"
-                                            value="<?= $grade['grade_id'] ?>">
-                                        <?= $grade['grade_code'] ?><?= $grade['grade_type'] ?>
+                                            name="classes[]"
+                                            value="<?= $class['class_id'] ?>">
+                                        <?php
+                                        $grade = getGradeById($class['grade'], $conn);
+                                        $section = getSectionById($class['section'], $conn);
+                                        ?>
+                                        <?= $grade['grade_code'] ?><?= $grade['grade_type'] . '-' . $section['section_name'] ?>
                                     </div>
                                 <?php endforeach ?>
+
+
+
+
+
+
+
+
                             </div>
 
-                            <label class=" mt-4" for="sectionInput">Section</label>
-                            <div class="row row-cols-5">
-                                <?php foreach ($sections as $section): ?>
-                                    <div class="col">
-                                        <input type="checkbox" id="sectionInput"
-                                            name="sections[]"
-                                            value="<?= $section['section_id'] ?>">
-                                        <?= $section['section_name'] ?>
-                                    </div>
-                                <?php endforeach ?>
-                            </div>
-
-
-
-                        </div>
-
-                        <button type="submit" class="btn btn-primary mt-4">Add</button>
+                            <button type="submit" class="btn btn-primary mt-4">Add</button>
                     </form>
 
 

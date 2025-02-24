@@ -20,9 +20,8 @@ if (
             isset($_POST['email_address']) &&
             isset($_POST['gender']) &&
             isset($_POST['date_of_birth']) &&
-            isset($_POST['sections']) &&
             isset($_POST['subjects']) &&
-            isset($_POST['grades'])
+            isset($_POST['classes'])
         ) {
 
             include '../../DB_connection.php';
@@ -46,14 +45,9 @@ if (
                 $subjects .= $subject;
             }
 
-            $grades = "";
-            foreach ($_POST['grades'] as $grade) {
-                $grades .= $grade;
-            }
-
-            $sections = "";
-            foreach ($_POST['sections'] as $section) {
-                $sections .= $section;
+            $classes = "";
+            foreach ($_POST['classes'] as $class) {
+                $classes .= $class;
             }
 
             $data = 'teacher_id=' . $teacher_id;
@@ -103,11 +97,11 @@ if (
                 header("Location: ../teacher-edit.php?error=$em&$data");
                 exit;
             } else {
-                $sql = "UPDATE teacher SET username=?, fname=?, lname=?, subject_type=?, grade_type=?, address=?, employee_number=?, date_of_birth=?, phone_number=?, qualification=?, gender=?, email_address=?, section=? 
+                $sql = "UPDATE teacher SET username=?, class=?,  fname=?, lname=?, subject_type=?,address=?, employee_number=?, date_of_birth=?, phone_number=?, qualification=?, gender=?, email_address=?
                 WHERE teacher_id=?";
 
                 $stmt = $conn->prepare($sql);
-                $stmt->execute([$uname, $fname, $lname, $subjects, $grades, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address, $sections,  $teacher_id]);
+                $stmt->execute([$uname, $classes, $fname, $lname, $subjects,  $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address, $teacher_id]);
 
                 $sm = "Sucessfully Updated!";
                 header("Location: ../teacher-edit.php?success=$sm&$data");

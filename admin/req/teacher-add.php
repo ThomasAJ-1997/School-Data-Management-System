@@ -13,6 +13,7 @@ if (
             isset($_POST['lname']) &&
             isset($_POST['username']) &&
             isset($_POST['pass']) &&
+            isset($_POST['classes']) &&
             isset($_POST['address']) &&
             isset($_POST['employee_number']) &&
             isset($_POST['phone_number']) &&
@@ -20,9 +21,7 @@ if (
             isset($_POST['email_address']) &&
             isset($_POST['gender']) &&
             isset($_POST['date_of_birth']) &&
-            isset($_POST['subjects']) &&
-            isset($_POST['grades']) &&
-            isset($_POST['sections'])
+            isset($_POST['subjects'])
         ) {
 
             include '../../DB_connection.php';
@@ -46,18 +45,13 @@ if (
                 $subjects .= $subject;
             }
 
-            $grades = "";
-            foreach ($_POST['grades'] as $grade) {
-                $grades .= $grade;
-            }
-
-            $sections = "";
-            foreach ($_POST['sections'] as $section) {
-                $sections .= $section;
+            $classes = "";
+            foreach ($_POST['classes'] as $class) {
+                $classes .= $class;
             }
 
             $data = 'uname=' . $uname . '&fname=' . $fname . '&lname=' . $lname .
-                '&address=' . $address . '&en=' . $employee_number . '&pn=' . $phone_number . '&qf=' . $qualification . '&email=' . $email_address . '&gender=' . $gender;
+                '&address=' . $address . '&en=' . $employee_number . '&pn=' . $phone_number . '&qf=' . $qualification . '&email=' . $email_address;
 
             if (empty($fname)) {
                 $em  = "First name is required";
@@ -110,10 +104,10 @@ if (
             } else {
                 $pass = password_hash($pass, PASSWORD_DEFAULT);
 
-                $query = "INSERT INTO teacher (username, password, fname, lname, subject_type, grade_type, address, section, employee_number, date_of_birth, phone_number, qualification, gender, email_address) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                $query = "INSERT INTO teacher (username, password, class, fname, lname, subject_type, address, employee_number, date_of_birth, phone_number, qualification, gender, email_address) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
                 $stmt = $conn->prepare($query);
-                $stmt->execute([$uname, $pass, $fname, $lname, $subjects, $grades, $sections, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address]);
+                $stmt->execute([$uname, $pass, $classes, $fname, $lname, $subjects, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address]);
 
                 $sm = "New teacher registered successfully";
                 header("Location: ../teacher-add.php?success=$sm");

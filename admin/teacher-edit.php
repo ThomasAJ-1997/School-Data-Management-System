@@ -11,11 +11,12 @@ if (
         include "../db_connection.php";
         include "data/subject.php";
         include "data/grade.php";
-        include "data/section.php";
+        include "data/class.php";
         include "data/teacher.php";
+        include "data/section.php";
         $subjects = allSubjects($conn);
-        $grades = allGrades($conn);
-        $sections = allSections($conn);
+        $classes = allClasses($conn);
+
 
         $teacher_id = $_GET['teacher_id'];
         $teacher = getTeachertById($teacher_id, $conn);
@@ -169,47 +170,25 @@ if (
                                 <?php } ?>
                             </div>
 
-
-                            <label class="mt-4" for="gradeInput">Grade</label>
+                            <label class="mt-4" for="classInput">Class</label>
                             <div class="row row-cols-5">
                                 <?php
-                                $grades_ids = str_split(trim($teacher['grade_type']));
-                                foreach ($grades as $grade) {
+                                $class_ids = str_split(trim($teacher['class']));
+                                foreach ($classes as $class) {
                                     $checked = 0;
-                                    foreach ($grades_ids as $grades_id) {
-                                        if ($grades_id == $grade['grade_id']) {
+                                    foreach ($class_ids as $class_id) {
+                                        if ($class_id == $class['class_id']) {
                                             $checked = 1;
                                         }
                                     }
+                                    $grade = getGradeById($class['class_id'], $conn);
                                 ?>
                                     <div class="col">
                                         <input type="checkbox"
-                                            name="grades[]"
+                                            name="classes[]"
                                             <?php if ($checked) echo "checked" ?>
                                             value="<?= $grade['grade_id'] ?>">
-                                        <?= $grade['grade_code'] ?><?= $grade['grade_type'] ?>
-                                    </div>
-                                <?php } ?>
-                            </div>
-
-                            <label class="mt-4" for="gradeInput">Section</label>
-                            <div class="row row-cols-5">
-                                <?php
-                                $section_ids = str_split(trim($teacher['section']));
-                                foreach ($sections as $section) {
-                                    $checked = 0;
-                                    foreach ($section_ids as $section_id) {
-                                        if ($section_id == $section['section_id']) {
-                                            $checked = 1;
-                                        }
-                                    }
-                                ?>
-                                    <div class="col">
-                                        <input type="checkbox"
-                                            name="sections[]"
-                                            <?php if ($checked) echo "checked" ?>
-                                            value="<?= $section['section_id'] ?>">
-                                        <?= $section['section_name'] ?>
+                                        <?= $grade['grade_type'] ?>-<?= $grade['grade_code'] ?>
                                     </div>
                                 <?php } ?>
                             </div>
