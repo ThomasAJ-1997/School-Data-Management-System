@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li class="nav-list-item">
-                        <a href="#" class="nav-link">
+                        <a href="class.php" class="nav-link">
                             <i class="ri-file-user-fill"></i>
                             <span class="link-text">Class</span>
                         </a>

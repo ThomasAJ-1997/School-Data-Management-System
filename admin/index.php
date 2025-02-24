@@ -69,11 +69,11 @@ if (
                                         <i class="fa fa-briefcase fs-1" aria-hidden="true"></i><br>
                                         Register Office
                                     </a>
-                                    <a href="" class="col btn btn-dark m-2 py-3">
+                                    <a href="class.php" class="col btn btn-dark m-2 py-3">
                                         <i class="fa fa-cubes fs-1" aria-hidden="true"></i><br>
                                         Class
                                     </a>
-                                    <a href="" class="col btn btn-dark m-2 py-3">
+                                    <a href="section.php" class="col btn btn-dark m-2 py-3">
                                         <i class="fa fa-address-book fs-1" aria-hidden="true"></i><br>
                                         Section
                                     </a>
