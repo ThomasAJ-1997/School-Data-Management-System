@@ -7,9 +7,10 @@ if (
 
     if ($_SESSION['role'] == 'Admin') {
         include "../db_connection.php";
-        include "data/grade.php";
+        include "data/register-office.php";
 
-        $grades = allGrades($conn);
+
+        $r_users = allusers($conn);
 
 ?>
 
@@ -19,7 +20,7 @@ if (
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Admin - Grade</title>
+            <title>Admin - Register Office</title>
             <!-- BOOTSTRAP -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
             <!-- SASS/SCSS -->
@@ -42,12 +43,12 @@ if (
             <main class="main-wrap">
                 <?php include "includes/navbar.php";
 
-                if ($grades != 0) {
+                if ($r_users != 0) {
 
                 ?>
 
                     <div class="move-left container mt-5">
-                        <a class="btn btn-dark" href="grade-add.php">Add New Grade</a>
+                        <a class="btn btn-dark" href="office-add.php">Add New User</a>
 
                         <?php if (isset($_GET['error'])) { ?>
                             <div class="alert alert-danger mt-2 n-table" role="alert">
@@ -67,27 +68,29 @@ if (
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Grade</th>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Username</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 0;
-                                    foreach ($grades as $grade) {
+                                    foreach ($r_users as $r_user) {
                                         $i++;
                                     ?>
                                         <tr>
                                             <th scope="row"><?= $i ?></th>
+                                            <td><?= $r_user['r_user_id'] ?></td>
+                                            <td><a href="office-view.php?r_user_id=<?= $r_user['r_user_id'] ?>
+                                            "><?= $r_user['fname'] ?></a></td>
+                                            <td><?= $r_user['lname'] ?></td>
+                                            <td><?= $r_user['username'] ?></td>
                                             <td>
-                                                <?php
-                                                echo $grade['grade_code'] . '-' .
-                                                    $grade['grade_type'];
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <a href="grade-edit.php?grade_id=<?= $grade['grade_id'] ?>"
+                                                <a href="office-edit.php?r_user_id=<?= $r_user['r_user_id'] ?>"
                                                     class="btn btn-warning">Edit</a>
-                                                <a href="grade-delete.php?grade_id=<?= $grade['grade_id'] ?>"
+                                                <a href="office-delete.php?r_user_id=<?= $r_user['r_user_id'] ?>"
                                                     class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
@@ -97,7 +100,7 @@ if (
                         <?php } else { ?>
                             <div class="message-box">
                                 <div class="alert-box alert alert-info .w-450 m-5" role="alert">
-                                    Empty: No Grade Records to Show.
+                                    Empty: No User Records to Show.
                                 </div>
                             </div>
                         <?php } ?>
@@ -113,7 +116,7 @@ if (
 
                     <script>
                         $(document).ready(function() {
-                            $("#navLinks li:nth-child(4) a").addClass("active");
+                            $("#navLinks li:nth-child(7) a").addClass("active");
                         });
                     </script>
 

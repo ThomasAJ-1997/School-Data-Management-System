@@ -65,7 +65,7 @@ if (
                                         <i class="fa fa-graduation-cap fs-1" aria-hidden="true"></i><br>
                                         Students
                                     </a>
-                                    <a href="" class="col btn btn-dark m-2 py-3">
+                                    <a href="office.php" class="col btn btn-dark m-2 py-3">
                                         <i class="fa fa-briefcase fs-1" aria-hidden="true"></i><br>
                                         Register Office
                                     </a>

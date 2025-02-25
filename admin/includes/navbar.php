@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li class="nav-list-item">
-                        <a href="#" class="nav-link">
+                        <a href="office.php" class="nav-link">
                             <i class="ri-profile-fill"></i>
                             <span class="link-text">Office </span>
                         </a>

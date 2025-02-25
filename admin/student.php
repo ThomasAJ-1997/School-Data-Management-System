@@ -116,8 +116,10 @@ if (
                                 </tbody>
                             </table>
                         <?php } else { ?>
-                            <div class="alert-box alert alert-info .w-450 m-5" role="alert">
-                                Empty: No Student Records to Show.
+                            <div class="message-box">
+                                <div class="alert-box alert alert-info .w-450 m-5" role="alert">
+                                    Empty: No Student Records to Show.
+                                </div>
                             </div>
                         <?php } ?>
 
