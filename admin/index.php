@@ -81,7 +81,7 @@ if (
                                         <i class="fa fa-calendar-check-o fs-1" aria-hidden="true"></i><br>
                                         Schedule
                                     </a>
-                                    <a href="" class="col btn btn-dark m-2 py-3">
+                                    <a href="course.php" class="col btn btn-dark m-2 py-3">
                                         <i class="fa fa-book fs-1" aria-hidden="true"></i><br>
                                         Course
                                     </a>

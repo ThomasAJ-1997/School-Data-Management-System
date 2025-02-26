@@ -53,7 +53,7 @@
                     </li>
 
                     <li class="nav-list-item">
-                        <a href="#" class="nav-link">
+                        <a href="course.php" class="nav-link">
                             <i class="ri-presentation-fill"></i>
                             <span class="link-text">Course</span>
                         </a>

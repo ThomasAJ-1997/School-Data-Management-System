@@ -108,7 +108,7 @@ if (
                                 hidden>
 
 
-                            <button type="submit" class="btn btn-primary mt-4">Edit Grade</button>
+                            <button type="submit" class="btn btn-primary mt-4">Edit Class</button>
                     </form>
 
 
