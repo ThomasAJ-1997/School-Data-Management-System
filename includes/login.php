@@ -35,10 +35,14 @@ if (
             $sql = "SELECT * FROM teacher
         	        WHERE username = ?";
             $role = "Teacher";
-        } else {
+        } else if ($role == '3') {
             $sql = "SELECT * FROM student 
         	        WHERE username = ?";
             $role = "Student";
+        } else if ($role == '4') {
+            $sql = "SELECT * FROM register_office
+        	        WHERE username = ?";
+            $role = "Register Office";
         }
 
         $stmt = $conn->prepare($sql);
@@ -61,6 +65,11 @@ if (
                         $id = $user['admin_id'];
                         $_SESSION['admin_id'] = $id;
                         header("Location: ../admin/index.php");
+                        exit;
+                    } else if ($role == 'Register Office') {
+                        $id = $user['r_user_id'];
+                        $_SESSION['r_user_id'] = $id;
+                        header("Location: ../registerOffice/index.php");
                         exit;
                     }
                 } else {
