@@ -66,6 +66,16 @@ if (
                         $_SESSION['admin_id'] = $id;
                         header("Location: ../admin/index.php");
                         exit;
+                    } else if ($role == 'Student') {
+                        $id = $user['student_id'];
+                        $_SESSION['student_id'] = $id;
+                        header("Location: ../student/index.php");
+                        exit;
+                    } else if ($role == 'Teacher') {
+                        $id = $user['teacher_id'];
+                        $_SESSION['teacher_id'] = $id;
+                        header("Location: ../teacher/index.php");
+                        exit;
                     } else if ($role == 'Register Office') {
                         $id = $user['r_user_id'];
                         $_SESSION['r_user_id'] = $id;
